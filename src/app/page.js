@@ -19,9 +19,10 @@ export default function Home() {
         <FeatureSection />
 
         <AboutSection />
-        <ContactSection />
+
         <AdmissionCircular />
         <WhyChooseSection />
+        <ContactSection />
         <FAQSection />
       </main>
       <Footer />

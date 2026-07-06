@@ -3,7 +3,7 @@
 import Button from "@/components/ui/Button";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 // Import Swiper styles
@@ -14,13 +14,14 @@ import "swiper/css/effect-fade";
 
 export default function HeroSection() {
     const bannerImages = [
-        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=900&q=80"
+        "https://i.ibb.co.com/XxDjCmJx/484713077-2038670389956190-6800219463606011938-n.jpg",
+        "https://i.ibb.co.com/BVxzpc5Q/472323797-1985143795308850-4884126481897440377-n.jpg",
+
     ];
 
     return (
-        <section id="home" className="overflow-hidden bg-slate-50 py-16 sm:py-24">
+        <section
+            id="home" className="overflow-hidden bg-blue-50 py-16 sm:py-24">
             <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 md:px-8 lg:flex-row lg:items-center lg:justify-between">
 
                 {/* Left Text Content */}
@@ -36,20 +37,20 @@ export default function HeroSection() {
                         আইডিয়াল স্কুল
                     </h1>
 
-                    <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-600 md:mx-0 sm:text-lg">
+                    <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-600 md:mx-0 sm:text-lg text-justify">
                         আমরা মানসম্মত শিক্ষা, নৈতিক মূল্যবোধ এবং আধুনিক শিক্ষণ পদ্ধতির মাধ্যমে প্রতিটি শিক্ষার্থীকে একজন দক্ষ, সৃজনশীল ও দায়িত্বশীল নাগরিক হিসেবে গড়ে তুলতে প্রতিশ্রুতিবদ্ধ।
                     </p>
 
                     <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-                        <Button className="min-w-[140px]">Get Started</Button>
-                        <Button variant="secondary" outlined className="min-w-[140px]">
+                        <Button className="">Get Started</Button>
+                        <Button variant="secondary" outlined className="">
                             Learn More
                         </Button>
                     </div>
                 </div>
 
                 {/* Right Slider Image Column */}
-                <div className="w-full max-w-[550px] mx-auto rounded-[2.5rem] bg-white shadow-xl shadow-slate-200/70 ring-1 ring-slate-200 w-full">
+                <div className="w-full max-w-[550px] mx-auto rounded-[2.5rem] bg-white shadow-xl shadow-slate-200/70 ring-1 ring-slate-200">
                     <div className="group relative overflow-hidden rounded-[1.75rem]">
 
                         <Swiper
@@ -101,14 +102,6 @@ export default function HeroSection() {
 
             </div>
 
-            {/* Custom styles for pagination active bullet */}
-            <style jsx global>{`
-                .hero-swiper .swiper-pagination-bullet-active {
-                    background: #1d4ed8 !important;
-                    width: 18px;
-                    border-radius: 4px;
-                }
-            `}</style>
         </section>
     );
 }

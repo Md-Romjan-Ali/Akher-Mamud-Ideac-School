@@ -36,7 +36,7 @@ export default function FAQSection() {
                     <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
                         FAQ
                     </p>
-                    <h2 className="mt-3 text-3xl font-bold text-gray-600 sm:text-4xl">
+                    <h2 className="mt-3 text-3xl font-semibold leading-tight text-slate-800 sm:text-4xl">
                         সাধারণ জিজ্ঞাসা
                     </h2>
                     <p className="mt-4 text-lg text-slate-600">

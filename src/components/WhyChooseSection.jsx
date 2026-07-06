@@ -39,7 +39,7 @@ export default function WhyChooseSection() {
                         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
                             Why Choose Us
                         </p>
-                        <h2 className="mt-3 text-3xl leading-13 font-bold sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
                             এমন একটি বিদ্যালয়, যা শিক্ষার্থীদের আত্মবিশ্বাস ও শ্রেষ্ঠত্বের সাথে বিকশিত হতে সাহায্য করে।
                         </h2>
                         <p className="mt-4 text-lg text-slate-300">
@@ -47,11 +47,11 @@ export default function WhyChooseSection() {
                         </p>
                     </div>
 
-                    <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                    <div className="mt-10 grid gap-4 sm:grid-cols-2 text-justify">
                         {reasons.map((item) => {
                             const Icon = item.icon;
                             return (
-                                <div key={item.title} className="rounded-2xl border border-slate-800 bg-slate-800/70 p-5">
+                                <div key={item.title} className="rounded-2xl border border-slate-800 bg-slate-800/70 p-5 transition duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl">
                                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600/20 text-blue-400">
                                         <Icon className="h-5 w-5" />
                                     </div>
@@ -70,14 +70,14 @@ export default function WhyChooseSection() {
                         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
                             Our Success
                         </p>
-                        <h2 className="mt-3 text-2xl leading-15 font-bold sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-semibold leading-tight text-slate-800 sm:text-4xl">
                             কৃতিত্ব এবং শ্রেষ্ঠত্বের এক সুষ্পষ্ট ও গৌরবময় ইতিহাস।
                         </h2>
                     </div>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                         {stats.map((stat) => (
-                            <div key={stat.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                            <div key={stat.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                 <p className="text-3xl font-bold text-slate-900">{stat.value}</p>
                                 <p className="mt-2 text-sm text-slate-500">{stat.label}</p>
                             </div>

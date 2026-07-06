@@ -1,4 +1,4 @@
-import { FiFacebook, FiLinkedin, FiGithub, FiBookOpen } from "react-icons/fi";
+import { FiFacebook, FiInstagram, FiYoutube, FiMessageCircle, FiBookOpen } from "react-icons/fi";
 
 const quickLinks = [
     { label: "Home", href: "#home" },
@@ -19,8 +19,24 @@ export default function Footer() {
                             </div>
                             <div>
                                 <p className="text-2xl font-semibold text-white">A M I S</p>
-
                             </div>
+                        </div>
+                        <p className="max-w-md text-sm leading-6 text-slate-300">
+                            A trusted learning community dedicated to academic excellence, discipline, and holistic student development.
+                        </p>
+                        <div className="flex flex-wrap items-center gap-3">
+                            <a href="#" className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-blue-500 hover:text-blue-400" aria-label="Facebook">
+                                <FiFacebook className="h-5 w-5" />
+                            </a>
+                            <a href="#" className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-red-500 hover:text-red-400" aria-label="YouTube">
+                                <FiYoutube className="h-5 w-5" />
+                            </a>
+                            <a href="#" className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-pink-500 hover:text-pink-400" aria-label="Instagram">
+                                <FiInstagram className="h-5 w-5" />
+                            </a>
+                            <a href="#" className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-emerald-500 hover:text-emerald-400" aria-label="WhatsApp">
+                                <FiMessageCircle className="h-5 w-5" />
+                            </a>
                         </div>
                     </div>
 
@@ -36,17 +52,15 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Follow Us</p>
-                        <div className="mt-6 flex items-center gap-4 text-slate-300">
-                            <a href="#" className="transition hover:text-white" aria-label="Facebook">
-                                <FiFacebook className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="transition hover:text-white" aria-label="LinkedIn">
-                                <FiLinkedin className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="transition hover:text-white" aria-label="GitHub">
-                                <FiGithub className="h-5 w-5" />
-                            </a>
+                        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Location</p>
+                        <div className="mt-6 overflow-hidden rounded-2xl border border-slate-800 shadow-lg">
+                            <iframe
+                                src="https://www.google.com/maps?q=Akher%20Mamud%20Ideal%20School&z=14&output=embed"
+                                title="School Location"
+                                className="h-40 w-full border-0"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
                     </div>
                 </div>

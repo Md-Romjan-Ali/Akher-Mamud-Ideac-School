@@ -10,13 +10,13 @@ export default function FeatureSection() {
             <div className="mx-auto max-w-7xl px-6 md:px-8">
                 <div className="mx-auto max-w-3xl text-center">
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">Why Choose Our School Management System?</p>
-                    <h2 className="mt-4 text-3xl font-semibold tracking-tight text-gray-600">আধুনিক বিদ্যালয় ও দক্ষ প্রশাসনিক ব্যবস্থাপনার জন্য বিশেষভাবে নির্মিত।</h2>
+                    <h2 className="mt-4 text-3xl font-semibold leading-tight text-slate-800 sm:text-4xl">আধুনিক বিদ্যালয় ও দক্ষ প্রশাসনিক ব্যবস্থাপনার জন্য বিশেষভাবে নির্মিত।</h2>
                     <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
                         বিদ্যালয়ের প্রশাসনিক কার্যক্রমকে আরও সহজ, শিক্ষার্থীদের শিক্ষার মান উন্নত এবং শিক্ষকদের কর্মদক্ষতা বৃদ্ধি করার লক্ষ্যে পরিকল্পিত ছয়টি শক্তিশালী ও কার্যকর বৈশিষ্ট্য।
                     </p>
                 </div>
 
-                <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3 text-justify">
                     {features.map((feature) => {
                         const Icon = feature.icon;
                         return (

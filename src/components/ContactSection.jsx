@@ -8,14 +8,14 @@ export default function ContactSection() {
                 <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
                     <div className="space-y-4">
                         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">Get in Touch</p>
-                        <h2 className="text-3xl font-semibold tracking-tight text-gray-600 sm:text-4xl">আমাদের বিদ্যালয়ের সহায়তা দলের সঙ্গে যোগাযোগ করুন
+                        <h2 className="text-3xl font-semibold leading-tight text-slate-800 sm:text-4xl">আমাদের বিদ্যালয়ের সহায়তা দলের সঙ্গে যোগাযোগ করুন
                         </h2>
-                        <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                        <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg text-justify">
                             ভর্তি সংক্রান্ত তথ্য, প্রয়োজনীয় সহায়তা অথবা যেকোনো সাধারণ পরামর্শের জন্য আমাদের সঙ্গে যোগাযোগ করুন। আমাদের অভিজ্ঞ দল আপনার সকল প্রশ্নের উত্তর দিতে এবং প্রয়োজনীয় সহযোগিতা প্রদান করতে সর্বদা প্রস্তুত।
                         </p>
                     </div>
 
-                    <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm">
+                    <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
                                 <div className="mt-1 rounded-3xl bg-blue-600 p-3 text-white">
