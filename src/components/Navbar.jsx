@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"; // 1. Added useEffect
 import { FiBookOpen, FiMenu, FiX } from "react-icons/fi";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function HeaderComponent() {
     const [open, setOpen] = useState(false);
@@ -37,6 +38,7 @@ export default function HeaderComponent() {
     const navLinks = [
         { label: "Home", href: "#home" },
         { label: "About", href: "#about" },
+        { label: "Add Student", href: "/addStudent" },
     ];
 
     return (
@@ -56,8 +58,9 @@ export default function HeaderComponent() {
 
                 <nav className="hidden items-center gap-2 md:flex">
                     {navLinks.map((link) => (
-                        <button
+                        <Link
                             key={link.label}
+                            href={link.href}
                             className={`rounded-full px-4 py-2 text-sm font-medium transition duration-200 ${active === link.label
                                 ? "bg-blue-600 text-white shadow-sm"
                                 : "text-slate-700 hover:bg-slate-100"
@@ -65,7 +68,7 @@ export default function HeaderComponent() {
                             onClick={() => setActive(link.label)}
                         >
                             {link.label}
-                        </button>
+                        </Link>
                     ))}
                 </nav>
 

@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 Akher Mamud Ideal School Management System
 
-## Getting Started
+> 🚧 **Project Status:** Currently Under Active Development
 
-First, run the development server:
+A modern, scalable School Management System built with **Next.js** and modern web technologies. The goal of this project is to provide a complete digital solution for managing school operations, including students, teachers, admissions, notices, events, academic information, and administrative workflows.
+
+🌐 **Live Demo:** https://akher-mamud-ideal-school.vercel.app
+
+---
+
+## 🚀 Current Features
+
+- ✅ Modern Responsive UI
+- ✅ School Landing Page
+- ✅ Hero Section
+- ✅ About School
+- ✅ Teacher Section
+- ✅ Notice Board
+- ✅ Academic Information
+- ✅ Contact Section
+- ✅ Mobile Friendly Design
+- ✅ SEO-Friendly Pages
+
+---
+
+## 🚧 Features In Progress
+
+- Student Dashboard
+- Teacher Dashboard
+- Admin Dashboard
+- Online Admission System
+- Student Management
+- Teacher Management
+- Attendance Management
+- Class Routine
+- Exam & Result Management
+- Notice Management
+- Events Management
+- Gallery Management
+- Authentication & Authorization
+- Role-Based Access Control
+- Payment Integration
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- Next.js
+- React.js
+- JavaScript (ES6+)
+- Tailwind CSS
+
+### Backend *(In Progress)*
+- Node.js
+- Express.js
+
+### Database *(Planned)*
+- MongoDB
+
+### Deployment
+- Vercel
+
+---
+
+## 🎯 Project Goals
+
+- Build a production-ready School Management System.
+- Follow clean architecture and reusable component design.
+- Improve scalability and maintainability.
+- Deliver an excellent user experience across all devices.
+
+---
+
+## 📌 Roadmap
+
+- [x] Initial UI Development
+- [x] Responsive Design
+- [ ] Authentication
+- [ ] Dashboard
+- [ ] Student Management
+- [ ] Teacher Management
+- [ ] Admission Module
+- [ ] Result Management
+- [ ] Payment System
+- [ ] Final Deployment
+
+---
+
+## 📸 Screenshots
+
+  <img src="https://i.ibb.co.com/Pq3FpM0/image.png" alt="Akher Mamud Ideal School Management System" width="100%">
+
+
+---
+
+## 💻 Run Locally
 
 ```bash
+git clone https://github.com/Md-Romjan-Ali/Akher-Mamud-Ideac-School
+
+cd project-name
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🤝 Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Contributions, suggestions, and feedback are welcome.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 👨‍💻 Developer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Md Romjan Ali**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontend / MERN Stack Developer
 
-## Deploy on Vercel
+📧 romjan.merndev@gmail.com
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🌐 Portfolio: https://romjanportfolio.vercel.app
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+💼 LinkedIn: https://linkedin.com/in/md-romjan-ali
+
+🐙 GitHub: https://github.com/mdromjanali224512

@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from "react";
+import { studentDataPost } from "@/lib/post";
 
 export default function StudentForm() {
 
@@ -50,7 +51,7 @@ export default function StudentForm() {
 
             if (result.success) {
                 setImageUrl(result.data.url);
-                alert("Image uploaded successfully!");
+
             } else {
                 alert("Image upload failed. Please try again.");
             }
@@ -63,7 +64,7 @@ export default function StudentForm() {
     };
 
     // Handle Form Submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Strict validation check
@@ -77,18 +78,14 @@ export default function StudentForm() {
         // Combine form data with the uploaded ImgBB URL
         const data = new FormData(e.target)
         const formData = Object.fromEntries(data.entries())
-        const finalSubmissionData = {
+        const student = {
             ...formData,
             studentPhoto: imageUrl,
         };
 
-        console.log("Submitted Data:", finalSubmissionData);
+        const post = await studentDataPost(student)
+        console.log("Submitted Data:", post);
 
-        // Simulate API save
-        setTimeout(() => {
-            alert("Form submitted successfully for Akher Mamud Ideal School!");
-            setIsSubmitting(false);
-        }, 1500);
     };
 
     return (
@@ -110,87 +107,79 @@ export default function StudentForm() {
 
                             {/* Student Name */}
                             <Input
-                                isRequired
+
                                 type="text"
                                 label="Student Name"
                                 required
                                 name="studentName"
                                 placeholder="Enter full name"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaUser className="text-gray-400" />}
+
+                                className={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
+
                             />
 
                             {/* Father's Name */}
                             <Input
-                                isRequired
                                 type="text"
                                 label="Father's Name"
                                 name="fatherName"
                                 placeholder="Enter father's name"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                startContent={<FaUserFriends className="text-gray-400" />}
                             />
 
                             {/* Mother's Name */}
                             <Input
-                                isRequired
+
                                 type="text"
                                 label="Mother's Name"
                                 name="motherName"
                                 placeholder="Enter mother's name"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaUserFriends className="text-gray-400" />}
+                                className={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
                             />
 
                             {/* Date of Birth */}
                             <Input
-                                isRequired
+
                                 type="date"
                                 label="Date of Birth"
                                 name="dob"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaCalendarAlt className="text-gray-400" />}
+
+                                className={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
                             />
 
                             {/* Class Name */}
                             <Input
-                                isRequired
+
                                 type="text"
                                 label="Class Name"
                                 name="className"
                                 placeholder="e.g., Class 5, Class 8"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaGraduationCap className="text-gray-400" />}
+
+                                className={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
                             />
 
                             {/* Role ID / Roll No */}
                             <Input
-                                isRequired
+
                                 type="text"
                                 label="Role ID / Roll"
                                 required
                                 name="roleId"
                                 placeholder="Enter identification/roll number"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaIdCard className="text-gray-400" />}
+
+                                className={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
                             />
 
                             {/* Blood Group */}
-                            <Select className="w-full"
+                            <Select
                                 name="Bloud"
                                 placeholder="Select Blood Group"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", trigger: "text-sm" }}>
+                                className={{ label: "text-sm font-semibold text-slate-700", trigger: "text-sm" }}>
                                 <Label>Blood Group</Label>
 
                                 <Select.Trigger>
@@ -214,31 +203,32 @@ export default function StudentForm() {
                                 </Select.Popover>
                             </Select>
                             <Input
-                                isRequired
+
                                 type="number"
                                 label="Mobile"
                                 required
                                 name="mobile"
                                 placeholder="Enter Valid mobile Number"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaUserFriends className="text-gray-400" />}
+
+                                className={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
                             />
 
                             {/* Address */}
 
                             <Input
-                                isRequired
+
                                 type="text"
                                 label="Address"
                                 name="address"
                                 placeholder="Enter present address"
                                 variant="bordered"
-                                labelPlacement="outside"
-                                classNames={{ label: "text-sm font-semibold text-slate-700", input: "text-sm" }}
-                                startContent={<FaMapMarkerAlt className="text-gray-400" />}
-                                className="md:col-span-2"
+
+                                className={{
+                                    label: "text-sm font-semibold text-slate-700",
+                                    input: "text-sm"
+                                }}
+
                             />
                         </div>
 
