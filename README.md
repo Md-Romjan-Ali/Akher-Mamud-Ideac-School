@@ -2,28 +2,60 @@
 
 > 🚧 **Project Status:** Currently Under Active Development
 
-A modern, scalable School Management System built with **Next.js** and modern web technologies. The goal of this project is to provide a complete digital solution for managing school operations, including students, teachers, admissions, notices, events, academic information, and administrative workflows.
+A modern, scalable **School Management System** built with **Next.js** and modern web technologies. This platform is designed to digitize school operations by providing modules for student management, teacher management, admissions, notices, academic information, events, and administrative workflows through a secure and user-friendly interface.
 
 🌐 **Live Demo:** https://akher-mamud-ideal-school.vercel.app
 
 ---
 
-## 🚀 Current Features
+# 📸 Screenshot
 
-- ✅ Modern Responsive UI
-- ✅ School Landing Page
-- ✅ Hero Section
-- ✅ About School
-- ✅ Teacher Section
-- ✅ Notice Board
-- ✅ Academic Information
-- ✅ Contact Section
-- ✅ Mobile Friendly Design
-- ✅ SEO-Friendly Pages
+<p align="center">
+  <img src="https://i.ibb.co.com/Pq3FpM0/image.png" alt="Akher Mamud Ideal School Management System" width="100%">
+</p>
 
 ---
 
-## 🚧 Features In Progress
+# 🚀 Technologies Used
+
+### Frontend
+
+- Next.js
+- React.js
+- JavaScript (ES6+)
+- Tailwind CSS
+
+### Backend *(In Progress)*
+
+- Node.js
+- Express.js
+
+### Database *(Planned)*
+
+- MongoDB
+
+### Deployment
+
+- Vercel
+
+---
+
+# ✨ Current Features
+
+- ✅ Modern responsive user interface
+- ✅ School landing page
+- ✅ Hero section
+- ✅ About school section
+- ✅ Teacher showcase
+- ✅ Notice board
+- ✅ Academic information
+- ✅ Contact section
+- ✅ Mobile-friendly design
+- ✅ SEO-friendly pages
+
+---
+
+# 🚧 Features In Progress
 
 - Student Dashboard
 - Teacher Dashboard
@@ -32,10 +64,10 @@ A modern, scalable School Management System built with **Next.js** and modern we
 - Student Management
 - Teacher Management
 - Attendance Management
-- Class Routine
+- Class Routine Management
 - Exam & Result Management
 - Notice Management
-- Events Management
+- Event Management
 - Gallery Management
 - Authentication & Authorization
 - Role-Based Access Control
@@ -43,27 +75,7 @@ A modern, scalable School Management System built with **Next.js** and modern we
 
 ---
 
-## 🛠 Tech Stack
-
-### Frontend
-- Next.js
-- React.js
-- JavaScript (ES6+)
-- Tailwind CSS
-
-### Backend *(In Progress)*
-- Node.js
-- Express.js
-
-### Database *(Planned)*
-- MongoDB
-
-### Deployment
-- Vercel
-
----
-
-## 🎯 Project Goals
+# 🎯 Project Goals
 
 - Build a production-ready School Management System.
 - Follow clean architecture and reusable component design.
@@ -72,58 +84,82 @@ A modern, scalable School Management System built with **Next.js** and modern we
 
 ---
 
-## 📌 Roadmap
+# 🗺️ Roadmap
 
-- [x] Initial UI Development
-- [x] Responsive Design
-- [ ] Authentication
-- [ ] Dashboard
-- [ ] Student Management
-- [ ] Teacher Management
-- [ ] Admission Module
-- [ ] Result Management
-- [ ] Payment System
-- [ ] Final Deployment
-
----
-
-## 📸 Screenshots
-
-  <img src="https://i.ibb.co.com/Pq3FpM0/image.png" alt="Akher Mamud Ideal School Management System" width="100%">
-
+- ✅ Initial UI Development
+- ✅ Responsive Design
+- ⏳ Authentication System
+- ⏳ Dashboard Development
+- ⏳ Student Management
+- ⏳ Teacher Management
+- ⏳ Admission Module
+- ⏳ Result Management
+- ⏳ Payment Integration
+- ⏳ Production Release
 
 ---
 
-## 💻 Run Locally
+# 💻 Run Locally
+
+## Clone the repository
 
 ```bash
-git clone https://github.com/Md-Romjan-Ali/Akher-Mamud-Ideac-School
+git clone https://github.com/Md-Romjan-Ali/Akher-Mamud-Ideac-School.git
+```
 
-cd project-name
+## Navigate to the project
 
+```bash
+cd Akher-Mamud-Ideac-School
+```
+
+## Install dependencies
+
+```bash
 npm install
+```
 
+## Start the development server
+
+```bash
 npm run dev
+```
+
+Open your browser and visit:
+
+```
+http://localhost:3000
 ```
 
 ---
 
-## 🤝 Contributing
+# 🔗 Resources
 
-Contributions, suggestions, and feedback are welcome.
+### 🌍 Live Website
+
+https://akher-mamud-ideal-school.vercel.app
+
+### 💻 GitHub Repository
+
+https://github.com/Md-Romjan-Ali/Akher-Mamud-Ideac-School
+
+### 🌐 Portfolio
+
+https://romjanportfolio.vercel.app
 
 ---
 
-## 👨‍💻 Developer
+# 👨‍💻 Developer
 
 **Md Romjan Ali**
 
-Frontend / MERN Stack Developer
+**Frontend / MERN Stack Developer**
 
-📧 romjan.merndev@gmail.com
+- 📧 Email: romjan.merndev@gmail.com
+- 💼 LinkedIn: https://linkedin.com/in/md-romjan-ali
+- 🐙 GitHub: https://github.com/Md-Romjan-Ali
+- 🌐 Portfolio: https://romjanportfolio.vercel.app
 
-🌐 Portfolio: https://romjanportfolio.vercel.app
+---
 
-💼 LinkedIn: https://linkedin.com/in/md-romjan-ali
-
-🐙 GitHub: https://github.com/mdromjanali224512
+⭐ **If you like this project, consider giving it a star on GitHub!**
