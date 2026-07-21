@@ -17,8 +17,8 @@ export function Sidebar() {
         ],
         'teacher': [
             { icon: House, label: "Home", href: '/dashboard/teacher/profile' },
-            { icon: Magnifier, label: "Search", href: 'dashboard/profile' },
-            { icon: Bell, label: "Notifications", href: 'dashboard/profile' },
+            { icon: Magnifier, label: "All Student", href: '/dashboard/teacher/allStudent' },
+            { icon: Bell, label: "Attendence", href: '/dashboard/teacher/attendence' },
             { icon: Envelope, label: "Messages", href: 'dashboard/profile' },
             { icon: Person, label: "Profile", href: 'dashboard/profile' },
             { icon: Gear, label: "Settings", href: 'dashboard/profile' },
