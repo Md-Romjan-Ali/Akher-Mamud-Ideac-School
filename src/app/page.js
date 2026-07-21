@@ -22,7 +22,6 @@ export default function Home() {
         <WhyChooseSection />
         <ContactSection />
         <FAQSection />
-        <Footer />
       </main>
     </div>
   );

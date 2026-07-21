@@ -5,14 +5,19 @@ import React, { useState } from "react";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 // Make sure this matches your Better Auth client setup path
 import { authClient } from "@/lib/auth-client";
+import { Spinner } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    const router = useRouter()
     // Only keeping state for password visibility toggle
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setLoading(true)
         // Form shortcut to grab all data at once
         const data = Object.fromEntries(new FormData(e.target));
         const rememberMe = data.rememberMe === "on"; // Checkboxes return "on" if checked
@@ -25,8 +30,9 @@ export default function LoginPage() {
                 dontRememberMe: !rememberMe, // Better Auth uses dontRememberMe by default
             });
 
+            setLoading(false)
             if (error) {
-                alert(error.message || "Invalid email or password");
+                setError(error.message);
                 return;
             }
 
@@ -35,6 +41,7 @@ export default function LoginPage() {
         } catch (err) {
             console.error("Login error:", err);
         }
+        router.push('/')
     };
 
     return (
@@ -119,7 +126,7 @@ export default function LoginPage() {
                             </button>
                         </div>
                     </div>
-
+                    <p className="text-sm text-red-500">{error}</p>
                     {/* Form Options (Remember Me & Forgot Password) */}
                     <div className="flex items-center justify-between">
                         <label className="flex items-center gap-2 cursor-pointer select-none">
@@ -145,7 +152,10 @@ export default function LoginPage() {
                         type="submit"
                         className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 active:scale-[0.99] transition-all duration-150 text-sm mt-2"
                     >
-                        Sign In
+                        {
+                            loading ? <Spinner color="current" /> : 'Sign In'
+                        }
+
                     </button>
                 </form>
 
