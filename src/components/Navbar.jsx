@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 // Using explicit HeroUI v3.2.2 primitives
 import {
     Dropdown,
-    Avatar,
     Label,
     useOverlayState
 } from "@heroui/react";
@@ -12,13 +11,16 @@ import { FiBookOpen, FiMenu, FiX } from "react-icons/fi";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import { startsWith } from "zod";
 
 export default function HeaderComponent() {
+    const pathName = usePathname()
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const router = useRouter()
+
     // v3 state overlay controller for the mobile menu drawer
     const mobileMenuState = useOverlayState({
         isOpen: false,
@@ -72,7 +74,9 @@ export default function HeaderComponent() {
         await authClient.signOut();
         router.push("/")
     };
-
+    if (pathName.startsWith('/dashboard')) {
+        return null
+    }
     return (
         <div className="mb-20">
             {/* Global Header Element */}
