@@ -2,55 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { FaEdit, FaSearch, FaTrashAlt, FaUser } from "react-icons/fa";
+import { FaArrowAltCircleDown, FaSearch, FaUser } from "react-icons/fa";
+import Link from "next/link";
 
-// Sample Data using your object structure
-const initialStudents = [
-    {
-        _id: "1",
-        studentName: "Md Romjan Ali",
-        email: "mdromjanali224512@gmail.com",
-        className: "10",
-        role: "student",
-        dob: "2026-07-02",
-        fatherName: "Khorshed Alam",
-        motherName: "Mst. Amesa Begum",
-        phoneNumber: "+8801700000000",
-        studentType: "better",
-        address: "Sherpur Sadar, MobarokPur",
-        photoUrl: "https://i.ibb.co/vxy8scqv/unnamed-Bkt-Dl6-removebg-preview.png"
-    },
-    {
-        _id: "2",
-        studentName: "Maria Garcia",
-        email: "maria.garcia@school.edu",
-        className: "9",
-        role: "student",
-        dob: "2026-03-15",
-        fatherName: "Carlos Garcia",
-        motherName: "Elena Garcia",
-        phoneNumber: "+8801811111111",
-        studentType: "regular",
-        address: "Dhaka, Bangladesh",
-        photoUrl: ""
-    },
-    {
-        _id: "3",
-        studentName: "David Wilson",
-        email: "david.w@school.edu",
-        className: "10",
-        role: "student",
-        dob: "2026-01-10",
-        fatherName: "John Wilson",
-        motherName: "Sarah Wilson",
-        phoneNumber: "+8801922222222",
-        studentType: "better",
-        address: "Mymensingh, Bangladesh",
-        photoUrl: ""
-    }
-];
-
-export default function StudentTableFrontend() {
+export default function StudentTableTeacher({ initialStudents }) {
     const [students] = useState(initialStudents);
     const [selectedClass, setSelectedClass] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
@@ -108,8 +63,8 @@ export default function StudentTableFrontend() {
                             key={cls}
                             onClick={() => setSelectedClass(cls)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${selectedClass === cls
-                                    ? "bg-emerald-600 text-white shadow-sm"
-                                    : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800"
+                                ? "bg-emerald-600 text-white shadow-sm"
+                                : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800"
                                 }`}
                         >
                             {cls === "All" ? "All Classes" : `Class ${cls}`}
@@ -181,15 +136,12 @@ export default function StudentTableFrontend() {
                                         </td>
 
                                         {/* Action Buttons */}
-                                        <td className="py-4 px-6 text-center">
-                                            <div className="flex items-center justify-center gap-2">
-                                                <button className="p-2 rounded-lg text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-all" title="Update">
-                                                    <FaEdit className="text-base" />
-                                                </button>
-                                                <button className="p-2 rounded-lg text-rose-500 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all" title="Delete">
-                                                    <FaTrashAlt className="text-base" />
-                                                </button>
-                                            </div>
+                                        <td className="py-4 px-6 text-center text-lg flex items-center">
+                                            <FaArrowAltCircleDown />
+                                            <Link href={`/dashboard/teacher/allStudent/${student._id}`}>
+                                                View Details
+                                            </Link>
+
                                         </td>
                                     </tr>
                                 ))
