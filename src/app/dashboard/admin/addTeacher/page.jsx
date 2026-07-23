@@ -1,5 +1,7 @@
 'use client';
 
+import { teacherPost } from '@/lib/post';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import {
     HiOutlineUser,
@@ -72,8 +74,9 @@ export default function TeacherRegistrationForm() {
                 imageUrl: uploadedImageUrl, // Direct ImgBB URL string
             };
 
-            console.log('Final Payload Extracted via FormData:', teacherPayload);
 
+            const postTeacher = await teacherPost(teacherPayload)
+            console.log(postTeacher, 'and', teacherPayload);
             setStatusMessage({
                 type: 'success',
                 text: 'Teacher registered successfully with ImgBB upload!',
@@ -268,7 +271,7 @@ export default function TeacherRegistrationForm() {
                                 </label>
                                 <input
                                     name='joinDate'
-                                     required
+                                    required
                                     className="w-full px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 transition"
                                     type="date" />
                             </div>
@@ -285,7 +288,10 @@ export default function TeacherRegistrationForm() {
                             {/* Thumbnail Preview */}
                             <div className="w-20 h-20 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center overflow-hidden shrink-0">
                                 {imagePreview ? (
-                                    <img src={imagePreview} alt="Teacher Preview" className="w-full h-full object-cover" />
+                                    <Image
+                                        height={150}
+                                        width={150}
+                                        src={imagePreview} alt="Teacher Preview" className="w-full h-full object-cover" />
                                 ) : (
                                     <HiOutlinePhoto className="w-8 h-8 text-slate-300" />
                                 )}

@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -16,34 +15,17 @@ import {
     FaEdit,
     FaPrint
 } from 'react-icons/fa';
+import { getTeacherByid } from '@/lib/get';
 
-// Mock teacher data representing your exact JSON structure
-const MOCK_TEACHER = {
-    teacherName: "Md Romjan Ali",
-    nationalId: "102101",
-    fatherName: "fghfgh",
-    motherName: "Mother Name",
-    phone: "+1 (990) 211-158",
-    bloodGroup: "O+",
-    address: "House 12, Road 4, Sector 7, Uttara, Dhaka",
-    educationLevel: "sdfgdfgg,2",
-    subjectForJoin: "ssss",
-    joinDate: "2026-07-13",
-    imageUrl: "" // Pass image URL here or leave empty for default placeholder
-};
-
-export default function TeacherDetailsPage({ teacher = MOCK_TEACHER }) {
-    const handlePrint = () => {
-        if (typeof window !== 'undefined') {
-            window.print();
-        }
-    };
+export default async function TeacherDetailsPage({ params }) {
+    const { id } = await params;
+    const teacher = await getTeacherByid(id)
 
     return (
         <div className="max-w-5xl mx-auto p-4 md:p-8 font-sans space-y-6">
 
             {/* Top Action Navigation */}
-            <div className="flex items-center justify-between print:hidden">
+            <div className="flex items-center justify-between">
                 <Link
                     href="/teachers"
                     className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors"
@@ -52,7 +34,6 @@ export default function TeacherDetailsPage({ teacher = MOCK_TEACHER }) {
                 </Link>
                 <div className="flex items-center gap-2">
                     <button
-                        onClick={handlePrint}
                         className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 shadow-sm transition"
                     >
                         <FaPrint className="text-slate-500" /> Print Profile
