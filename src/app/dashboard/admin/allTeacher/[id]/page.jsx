@@ -16,6 +16,7 @@ import {
     FaPrint
 } from 'react-icons/fa';
 import { getTeacherByid } from '@/lib/get';
+import { TeacherUpdate } from '@/components/TeacherUpdateModal';
 
 export default async function TeacherDetailsPage({ params }) {
     const { id } = await params;
@@ -27,7 +28,7 @@ export default async function TeacherDetailsPage({ params }) {
             {/* Top Action Navigation */}
             <div className="flex items-center justify-between">
                 <Link
-                    href="/teachers"
+                    href="/dashboard/admin/allTeacher"
                     className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors"
                 >
                     <FaArrowLeft /> Back to Directory
@@ -38,9 +39,9 @@ export default async function TeacherDetailsPage({ params }) {
                     >
                         <FaPrint className="text-slate-500" /> Print Profile
                     </button>
-                    <button className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">
-                        <FaEdit /> Edit Profile
-                    </button>
+
+                    <TeacherUpdate teacher={teacher} />
+
                 </div>
             </div>
 

@@ -3,17 +3,17 @@
 import React, { useState, useEffect } from "react";
 // Using explicit HeroUI v3.2.2 primitives
 import {
+    Button,
     Dropdown,
     Label,
     useOverlayState
 } from "@heroui/react";
 import { FiBookOpen, FiMenu, FiX } from "react-icons/fi";
-import Button from "@/components/ui/Button";
+
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import { startsWith } from "zod";
 
 export default function HeaderComponent() {
     const pathName = usePathname()

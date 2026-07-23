@@ -1,8 +1,7 @@
 
 // Utilizing clean, compact HeroUI v3.2.2 primitives
-import { Avatar } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import { FiEdit3 } from "react-icons/fi";
-import Button from "@/components/ui/Button";
 import Image from "next/image";
 
 export default function DisplayProfile({ user }) {

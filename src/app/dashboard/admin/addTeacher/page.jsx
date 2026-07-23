@@ -61,7 +61,7 @@ export default function TeacherRegistrationForm() {
         const data = Object.fromEntries(formData.entries())
         try {
             // 2. Extract image file directly from FormData
-            const imageFile = formData.get('teacherImage');
+            const imageFile = formData.get('image');
             let uploadedImageUrl = '';
 
             if (imageFile && imageFile.name) {
@@ -95,9 +95,6 @@ export default function TeacherRegistrationForm() {
             setIsLoading(false);
         }
     };
-
-    const currentYear = new Date().getFullYear();
-    const years = Array.from({ length: 31 }, (_, i) => currentYear - i);
 
     return (
         <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
@@ -302,6 +299,7 @@ export default function TeacherRegistrationForm() {
                                 <input
                                     type="file"
                                     accept="image/*"
+                                    name='image'
                                     onChange={handleImagePreview}
                                     className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition cursor-pointer"
                                 />

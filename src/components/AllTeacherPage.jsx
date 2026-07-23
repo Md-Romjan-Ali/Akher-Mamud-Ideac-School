@@ -13,10 +13,13 @@ import {
     FaUser
 } from 'react-icons/fa';
 import Link from 'next/link';
+import { deleteTeacher } from '@/lib/delete';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 export default function TeacherTableFrontend({ teachers }) {
     const [searchQuery, setSearchQuery] = useState('');
-
+    const router = useRouter()
     // Search filter matching name, phone, or education
     const filteredTeachers = teachers.filter((teacher) => {
         const q = searchQuery.toLowerCase();
@@ -32,8 +35,10 @@ export default function TeacherTableFrontend({ teachers }) {
 
     };
 
-    const handleDelete = (id) => {
-
+    const handleDelete = async (id) => {
+        await deleteTeacher(id)
+        router.refresh()
+        toast.success('Successfully Delete')
     };
 
     return (
@@ -159,7 +164,6 @@ export default function TeacherTableFrontend({ teachers }) {
                                                 </Link>
                                             </div>
                                         </td>
-
                                     </tr>
                                 ))
                             ) : (

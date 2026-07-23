@@ -1,5 +1,5 @@
+import { Button } from "@heroui/react";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
-import Button from "@/components/ui/Button";
 
 export default function ContactSection() {
     return (

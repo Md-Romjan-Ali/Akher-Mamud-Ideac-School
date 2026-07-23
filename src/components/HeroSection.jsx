@@ -1,6 +1,5 @@
 "use client";
 
-import Button from "@/components/ui/Button";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -11,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { Button } from "@heroui/react";
 
 export default function HeroSection() {
     const bannerImages = [

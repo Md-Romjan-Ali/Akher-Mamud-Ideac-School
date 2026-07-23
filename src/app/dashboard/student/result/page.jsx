@@ -1,8 +1,9 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import React from "react";
 import { FiAward, FiBook, FiCheckCircle, FiDownload } from "react-icons/fi";
-import Button from "@/components/ui/Button";
+
 
 export default function ResultTableSection() {
     // ৮টি সাবজেক্টের ডেমো রেজাল্ট ডাটা
