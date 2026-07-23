@@ -20,6 +20,7 @@ export function Sidebar() {
             { icon: HiUsers, label: "All Users", href: "/dashboard/admin/allUser" },
             { icon: HiCurrencyDollar, label: "Earn & Cost", href: "/dashboard/admin/earn-cost" },
             { icon: HiCalendarDays, label: "Teacher Attendance", href: "/dashboard/admin/teacherAttendence" },
+            { icon: HiUser, label: "Add-Teacher", href: "/dashboard/admin/addTeacher" },
         ],
 
         teacher: [
