@@ -2,6 +2,7 @@
 
 import { studentDataPost } from "@/lib/post";
 import { Spinner } from "@heroui/react";
+import Image from "next/image";
 import React, { useState } from "react";
 import {
     FaUser,
@@ -299,7 +300,9 @@ export default function StudentRegistrationForm() {
                             {/* Photo Preview Frame */}
                             <div className="w-24 h-24 rounded-2xl border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden flex items-center justify-center shrink-0 relative">
                                 {imagePreview ? (
-                                    <img
+                                    <Image
+                                        width={250}
+                                        height={250}
                                         src={imagePreview}
                                         alt="Preview"
                                         className="w-full h-full object-cover"

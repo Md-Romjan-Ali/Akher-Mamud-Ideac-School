@@ -7,6 +7,7 @@ import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
     const [loading, setLoading] = useState(false)
@@ -43,7 +44,12 @@ export default function LoginPage() {
         }
         router.push('/')
     };
+    const googleHandle = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        });
 
+    }
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-4">
             <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-100">
@@ -60,16 +66,12 @@ export default function LoginPage() {
 
                 {/* Google Login via Better Auth */}
                 <button
-                    type="button"
-                    onClick={async () => {
-                        await authClient.signIn.social({
-                            provider: "google",
-                        });
-                    }}
+                    onClick={googleHandle}
                     className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-slate-200 rounded-xl text-slate-700 font-medium bg-white hover:bg-slate-50 active:bg-slate-100 transition-colors duration-200"
                 >
-                    <FaGoogle className="text-red-500 text-lg" />
-                    <span>Continue with Google</span>
+
+                    <FcGoogle size={25} />
+                    Continue with Google
                 </button>
 
                 {/* Divider */}

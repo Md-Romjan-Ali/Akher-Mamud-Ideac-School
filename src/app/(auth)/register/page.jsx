@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 // Assuming you set up your Better Auth client instance here
 import { authClient } from "@/lib/auth-client";
+import { FcGoogle } from "react-icons/fc";
 
 export default function RegisterPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -50,7 +51,7 @@ export default function RegisterPage() {
                     onClick={async () => await authClient.signIn.social({ provider: "google" })}
                     className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-slate-200 rounded-xl text-slate-700 font-medium bg-white hover:bg-slate-50 active:bg-slate-100 transition-colors duration-200"
                 >
-                    <FaGoogle className="text-red-500 text-lg" />
+                    <FcGoogle size={25} />
                     <span>Continue with Google</span>
                 </button>
 

@@ -128,7 +128,9 @@ export default function TeacherTableFrontend() {
                             {/* Row 3 */}
                             <tr className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
                                 <td className="py-4 px-6">
-                                    <img
+                                    <Image
+                                        width={150}
+                                        height={150}
                                         src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150"
                                         alt="Maria Garcia"
                                         className="w-11 h-11 rounded-full object-cover border-2 border-indigo-100 dark:border-indigo-900 shadow-sm"
