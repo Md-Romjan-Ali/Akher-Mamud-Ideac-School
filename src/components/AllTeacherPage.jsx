@@ -13,9 +13,9 @@ import {
     FaUser
 } from 'react-icons/fa';
 import Link from 'next/link';
-import { deleteTeacher } from '@/lib/delete';
 import { useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
+import { CgArrowTopRight } from 'react-icons/cg';
+import { DeleteModal } from './DeleteModal';
 
 export default function TeacherTableFrontend({ teachers }) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -30,16 +30,6 @@ export default function TeacherTableFrontend({ teachers }) {
             teacher.subjectForJoin.toLowerCase().includes(q)
         );
     });
-
-    const handleUpdate = (teacher) => {
-
-    };
-
-    const handleDelete = async (id) => {
-        await deleteTeacher(id)
-        router.refresh()
-        toast.success('Successfully Delete')
-    };
 
     return (
         <div className="max-w-6xl mx-auto p-4 md:p-8 font-sans space-y-6">
@@ -142,25 +132,14 @@ export default function TeacherTableFrontend({ teachers }) {
 
                                         {/* Actions */}
                                         <td className="py-4 px-6 text-center">
-                                            <div className="flex items-center justify-center gap-2">
-                                                <button
-                                                    onClick={() => handleUpdate(teacher)}
-                                                    className="p-2 rounded-lg text-blue-600 hover:text-blue-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 transition-all"
-                                                    title="Update Teacher"
-                                                >
-                                                    <FaEdit className="text-base" />
-                                                </button>
-                                                <button
-                                                    onClick={() => handleDelete(teacher._id)}
-                                                    className="p-2 rounded-lg text-rose-500 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all"
-                                                    title="Delete Teacher"
-                                                >
-                                                    <FaTrashAlt className="text-base" />
-                                                </button>
+                                            <div className="flex items-center justify-center gap-4">
+                                                <DeleteModal teacher={teacher} />
                                                 <Link
+                                                    className='flex items-center gap-2 group hover:text-blue-500'
                                                     href={`/dashboard/admin/allTeacher/${teacher._id}`}
                                                 >
                                                     Details
+                                                    <CgArrowTopRight className='group-hover:scale-110 transition-all duration-500' size={15} />
                                                 </Link>
                                             </div>
                                         </td>
@@ -208,19 +187,15 @@ export default function TeacherTableFrontend({ teachers }) {
                                     </div>
 
                                     {/* Actions */}
-                                    <div className="flex items-center gap-1">
-                                        <button
-                                            onClick={() => handleUpdate(teacher)}
-                                            className="p-2 rounded-lg text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40"
+                                    <div className="flex items-center justify-center gap-4">
+                                        <DeleteModal teacher={teacher} />
+                                        <Link
+                                            className='flex items-center gap-2 group hover:text-blue-500'
+                                            href={`/dashboard/admin/allTeacher/${teacher._id}`}
                                         >
-                                            <FaEdit className="text-base" />
-                                        </button>
-                                        <button
-                                            onClick={() => handleDelete(teacher._id)}
-                                            className="p-2 rounded-lg text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40"
-                                        >
-                                            <FaTrashAlt className="text-base" />
-                                        </button>
+                                            Details
+                                            <CgArrowTopRight className='group-hover:scale-110 transition-all duration-500' size={15} />
+                                        </Link>
                                     </div>
                                 </div>
 

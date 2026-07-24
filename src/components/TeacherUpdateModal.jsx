@@ -2,23 +2,27 @@
 
 import { updateteacher } from "@/lib/update";
 import { Rocket } from "@gravity-ui/icons";
-import { Button, Modal } from "@heroui/react";
+import { Button, Modal, Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
 import { HiOutlineBookOpen, HiOutlineUser } from "react-icons/hi2";
 
 export function TeacherUpdate({ teacher }) {
+    const [loading, setLoading] = useState(false)
     const router = useRouter()
     const id = teacher._id
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries())
         const update = await updateteacher(data, id)
         console.log(update, data);
         router.refresh()
         toast.success("update Data succefully")
+        setLoading(false)
     }
     return (
         <Modal>
@@ -202,13 +206,16 @@ export function TeacherUpdate({ teacher }) {
 
                                 {/* Submit Action */}
                                 <div className="pt-4">
-                                    <button
+                                    <Button
+                                        slot={'close'}
                                         type="submit"
-
                                         className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-3 px-6 rounded-lg transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                    >
-                                        Save
-                                    </button>
+                                    >{
+                                            loading ? <Spinner color="current" /> :
+                                                'Save'
+                                        }
+
+                                    </Button>
                                 </div>
 
                             </form>

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { FaArrowAltCircleDown, FaSearch, FaUser } from "react-icons/fa";
+import { FaSearch, FaUser } from "react-icons/fa";
 import Link from "next/link";
+import { CgArrowTopRight } from "react-icons/cg";
+import { DeleteModal } from "./DeleteModal";
 
 export default function StudentTableTeacher({ initialStudents }) {
     const [students] = useState(initialStudents);
@@ -136,12 +138,15 @@ export default function StudentTableTeacher({ initialStudents }) {
                                         </td>
 
                                         {/* Action Buttons */}
-                                        <td className="py-4 px-6 text-center text-lg flex items-center">
-                                            <FaArrowAltCircleDown />
-                                            <Link href={`/dashboard/teacher/allStudent/${student._id}`}>
-                                                View Details
+                                        <td className="py-4 gap-4 px-6 text-center text-lg flex items-center">
+                                            <DeleteModal student={student} />
+                                            <Link
+                                                className='flex items-center gap-2 group hover:text-blue-500'
+                                                href={`/dashboard/admin/allStudent/${student._id}`}
+                                            >
+                                                Details
+                                                <CgArrowTopRight className='group-hover:scale-110 transition-all duration-500' size={15} />
                                             </Link>
-
                                         </td>
                                     </tr>
                                 ))
