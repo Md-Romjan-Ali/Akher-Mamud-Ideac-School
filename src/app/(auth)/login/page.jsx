@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 // Make sure this matches your Better Auth client setup path
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@heroui/react";

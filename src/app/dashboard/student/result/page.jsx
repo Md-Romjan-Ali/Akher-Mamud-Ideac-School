@@ -1,5 +1,6 @@
 "use client";
 
+import DownloadPdf from "@/components/DownloadPdf";
 import { Button } from "@heroui/react";
 import React from "react";
 import { FiAward, FiBook, FiCheckCircle, FiDownload } from "react-icons/fi";
@@ -42,12 +43,8 @@ export default function ResultTableSection() {
                                 Official mark sheets and grade distribution across 8 subjects.
                             </p>
                         </div>
+                        <DownloadPdf />
 
-                        {/* Download Marksheet Action */}
-                        <Button className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 px-4 py-2.5 shadow-sm transition-all self-start sm:self-center">
-                            <FiDownload />
-                            <span>Download PDF</span>
-                        </Button>
                     </div>
 
                     {/* Desktop Responsive HTML Table */}

@@ -1,3 +1,5 @@
+"use client"
+import { usePathname } from "next/navigation";
 import { FiFacebook, FiInstagram, FiYoutube, FiMessageCircle, FiBookOpen } from "react-icons/fi";
 
 const quickLinks = [
@@ -8,6 +10,10 @@ const quickLinks = [
 ];
 
 export default function Footer() {
+    const pathName = usePathname()
+    if (pathName.startsWith('/dashboard')) {
+        return null
+    }
     return (
         <footer className="bg-slate-900 text-slate-200">
             <div className="mx-auto max-w-7xl px-6 py-16 md:px-8">

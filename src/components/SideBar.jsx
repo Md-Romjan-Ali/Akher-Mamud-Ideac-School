@@ -45,7 +45,7 @@ export function Sidebar() {
     const role = session?.user.role
     const navItems = dainamicNavItem[role] || []
     return (
-        <div className="pl-5">
+        <aside className="pl-5">
             <Drawer.Body className="hidden md:block min-h-screen w-52">
                 <div className="flex gap-5 my-10 justify-center flex-col">
                     <Link href="/" className="flex items-center gap-3 active:scale-95 transition-transform">
@@ -108,7 +108,7 @@ export function Sidebar() {
                     </Drawer.Content>
                 </Drawer.Backdrop>
             </Drawer>
-        </div>
+        </aside>
 
     );
 }

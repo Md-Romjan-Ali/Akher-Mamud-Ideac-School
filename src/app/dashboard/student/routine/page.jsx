@@ -1,6 +1,8 @@
-import React from 'react';
+
+import DownloadPdf from "@/components/DownloadPdf";
 
 const RoutinePage = () => {
+
     return (
         <div>
 
@@ -105,7 +107,9 @@ const RoutinePage = () => {
                         </div>
                     </div>
                 </div>
+                <DownloadPdf />
             </div>
+
         </div>
     );
 };

@@ -89,14 +89,35 @@ export default function HeaderComponent() {
             >
                 {/* Left Section: Mobile Toggle & Brand Identity */}
                 <div className="flex items-center gap-4">
-                    <button
-                        type="button"
-                        onClick={mobileMenuState.toggle}
-                        className="p-2.5 -ml-2 rounded-xl text-slate-700 hover:bg-slate-50 md:hidden transition-colors focus:outline-none"
-                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    >
-                        {isMenuOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}sdfsd
-                    </button>
+                    {
+                        !session &&
+                        <Dropdown placement="bottom-end">
+                            <Dropdown.Trigger>
+                                <FiMenu className="h-6 w-6 md:hidden" />
+                            </Dropdown.Trigger>
+                            <Dropdown.Popover className="bg-white min-w-[200px] border border-slate-100 rounded-xl shadow-xl p-1 mt-2">
+                                <Dropdown.Menu
+                                >
+                                    <Dropdown.Item
+                                        className="md:hidden mt-1 rounded-lg hover:bg-slate-50">
+                                        <Link href={`/`} className="w-full block text-sm font-medium text-slate-700 px-1 py-1">
+                                            <Label>Home</Label>
+                                        </Link>
+                                    </Dropdown.Item>
+                                    {/* Navigation Links inside Dropdown */}
+                                    <Dropdown.Item id="dashboard" textValue="Dashboard" className="md:hidden mt-1 rounded-lg hover:bg-slate-50">
+                                        <Link href={`/login`} className="w-full block text-sm font-medium text-slate-700 px-1 py-1">
+                                            <Label>Login</Label>
+                                        </Link>
+                                    </Dropdown.Item>
+                                    {/* Action items */}
+
+                                </Dropdown.Menu>
+                            </Dropdown.Popover>
+                        </Dropdown>
+
+                    }
+
 
                     <Link href="/" className="flex items-center gap-3 active:scale-95 transition-transform">
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm">
@@ -153,8 +174,8 @@ export default function HeaderComponent() {
                             <Dropdown.Trigger>
                                 <Image
                                     className="transition-transform rounded-full border-blue-500 w-12 h-12 cursor-pointer"
-                                    alt={session.user?.name || "User"}
-                                    src={session.user?.image || undefined}
+                                    alt={session.user?.name}
+                                    src={session.user?.image}
                                     width={100}
                                     height={100}
 
@@ -173,7 +194,7 @@ export default function HeaderComponent() {
 
                                     {/* Navigation Links inside Dropdown */}
                                     <Dropdown.Item id="dashboard" textValue="Dashboard" className="md:hidden mt-1 rounded-lg hover:bg-slate-50">
-                                        <Link href={`/dashboard/${session?.user?.role}`} className="w-full block text-sm font-medium text-slate-700 px-1 py-1">
+                                        <Link href={`/dashboard/${session?.user?.role}/profile`} className="w-full block text-sm font-medium text-slate-700 px-1 py-1">
                                             <Label>Dashboard</Label>
                                         </Link>
                                     </Dropdown.Item>
@@ -199,7 +220,7 @@ export default function HeaderComponent() {
                     ) : (
                         <div className="hidden md:flex items-center gap-3">
                             <Link href="/login">
-                                <Button outlined className="border-slate-200 text-slate-700 hover:bg-slate-50">
+                                <Button variant="secondary" className="border-slate-200 text-slate-700 hover:bg-slate-50">
                                     Login
                                 </Button>
                             </Link>

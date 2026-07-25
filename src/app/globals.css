@@ -4,3 +4,11 @@
 html {
     scroll-behavior: smooth;
 }
+
+@media print {
+
+    aside,
+    .no-print {
+        display: none !important;
+    }
+}

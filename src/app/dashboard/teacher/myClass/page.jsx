@@ -1,5 +1,6 @@
 'use client';
 
+import DownloadPdf from '@/components/DownloadPdf';
 import React, { useState } from 'react';
 import {
 
@@ -183,6 +184,7 @@ export default function SchoolTeacherRoutine() {
                             )}
                         </tbody>
                     </table>
+
                 </div>
 
                 {/* Table Footer */}
@@ -191,6 +193,7 @@ export default function SchoolTeacherRoutine() {
                     <p>Days: Sun – Thu</p>
                 </div>
             </div>
+            <DownloadPdf />
         </div>
     );
 }

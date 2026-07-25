@@ -1,4 +1,5 @@
 "use client"
+import DownloadPdf from "@/components/DownloadPdf";
 import React, { useState } from "react";
 
 export default function SchoolFinanceSummary() {
@@ -159,7 +160,7 @@ export default function SchoolFinanceSummary() {
                         Update School Total
                     </button>
                 </form>
-
+                <DownloadPdf />
             </div>
         </div>
     );
