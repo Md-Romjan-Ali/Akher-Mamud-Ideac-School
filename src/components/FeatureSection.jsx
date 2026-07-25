@@ -6,7 +6,7 @@ const features = [
 
 export default function FeatureSection() {
     return (
-        <section className="bg-white py-16 sm:py-20">
+        <section id="our-school" className="bg-white py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-8">
                 <div className="mx-auto max-w-3xl text-center">
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">Why Choose Our School Management System?</p>

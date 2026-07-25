@@ -7,18 +7,18 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { FaTrashAlt } from "react-icons/fa";
 
-export function DeleteModal({ teacher, student }) {
+export function DeleteModal({ id, type }) {
 
     const router = useRouter()
     const handleDelete = async () => {
-        try {
-            teacher ?
-                await deleteTeacher(teacher?._id)
-                :
-                await deleteStudent(student?._id)
-        } catch (error) {
-            console.error(error);
-            toast.error('Delete Fail')
+
+        if (type === 'student') {
+            const students = await deleteStudent(id)
+            console.log(students);
+        }
+        else {
+            const teacherdelete = await deleteTeacher(id)
+            console.log(teacherdelete, 'from delte modal');
         }
         router.refresh()
         toast.success('Successfully Delete')

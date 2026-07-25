@@ -10,6 +10,7 @@ import { HiAcademicCap, HiCurrencyDollar } from "react-icons/hi";
 
 export function Sidebar() {
     const { data: session } = authClient.useSession()
+
     const pathName = usePathname()
     const dainamicNavItem = {
         admin: [
@@ -70,7 +71,7 @@ export function Sidebar() {
                 </nav>
             </Drawer.Body>
             <Drawer>
-                <Button variant="secondary" className={'md:hidden'}>
+                <Button variant="secondary" className={'md:hidden absolute mb-10 top-0 left-0'}>
                     <Bars />
                     Menu
                 </Button>

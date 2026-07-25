@@ -1,3 +1,4 @@
+import OfficeTimer from "@/components/OfficeTime";
 import dynamic from "next/dynamic";
 
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <main>
+        <OfficeTimer />
         <HeroSection />
         <HeadTeacherSection />
         <FeatureSection />

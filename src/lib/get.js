@@ -1,6 +1,8 @@
 const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
 export const studentDataGet = async () => {
-    const res = await fetch(`${serverUrl}/api/getstudent`)
+    const res = await fetch(`${serverUrl}/api/getstudent`, {
+        cache: 'no-store'
+    })
     return res.json()
 }
 //  get data by id
@@ -10,7 +12,9 @@ export const getDataById = async (id) => {
 }
 // get teacher data
 export const getTeacherData = async () => {
-    const res = await fetch(`${serverUrl}/api/getteacher`)
+    const res = await fetch(`${serverUrl}/api/getteacher`, {
+        cache: 'no-store'
+    })
     return res.json()
 }
 export const getTeacherByid = async (id) => {

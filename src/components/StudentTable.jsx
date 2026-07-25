@@ -139,7 +139,7 @@ export default function StudentTableTeacher({ initialStudents }) {
 
                                         {/* Action Buttons */}
                                         <td className="py-4 gap-4 px-6 text-center text-lg flex items-center">
-                                            <DeleteModal student={student} />
+                                            <DeleteModal id={student._id} type='student' />
                                             <Link
                                                 className='flex items-center gap-2 group hover:text-blue-500'
                                                 href={`/dashboard/admin/allStudent/${student._id}`}

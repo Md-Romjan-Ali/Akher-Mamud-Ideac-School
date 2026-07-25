@@ -3,7 +3,7 @@ import { FiMessageSquare } from "react-icons/fi";
 
 export default function HeadTeacherSection() {
     return (
-        <section className="bg-slate-50 py-16 sm:py-20">
+        <section id="teacher" className="bg-slate-50 py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-8">
                 {/* Fixed grid tracking ratios so the picture doesn't get overly wide on big screens */}
                 <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">

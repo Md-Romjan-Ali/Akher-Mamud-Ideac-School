@@ -133,7 +133,7 @@ export default function TeacherTableFrontend({ teachers }) {
                                         {/* Actions */}
                                         <td className="py-4 px-6 text-center">
                                             <div className="flex items-center justify-center gap-4">
-                                                <DeleteModal teacher={teacher} />
+                                                <DeleteModal id={teacher._id} type='teacher' />
                                                 <Link
                                                     className='flex items-center gap-2 group hover:text-blue-500'
                                                     href={`/dashboard/admin/allTeacher/${teacher._id}`}
@@ -188,7 +188,7 @@ export default function TeacherTableFrontend({ teachers }) {
 
                                     {/* Actions */}
                                     <div className="flex items-center justify-center gap-4">
-                                        <DeleteModal teacher={teacher} />
+                                        <DeleteModal id={teacher._id} type='teacher' />
                                         <Link
                                             className='flex items-center gap-2 group hover:text-blue-500'
                                             href={`/dashboard/admin/allTeacher/${teacher._id}`}

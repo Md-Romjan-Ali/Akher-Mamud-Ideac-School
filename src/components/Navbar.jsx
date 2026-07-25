@@ -63,13 +63,6 @@ export default function HeaderComponent() {
         return () => window.removeEventListener("scroll", controlNavbar);
     }, [lastScrollY, isMenuOpen]);
 
-    // Base navigation links
-    const navLinks = [
-        { label: "Home", href: "/" },
-        { label: "About", href: "#about" },
-        { label: "Add Student", href: "/addStudent" },
-    ];
-
     const handleLogout = async () => {
         await authClient.signOut();
         router.push("/")
@@ -77,6 +70,16 @@ export default function HeaderComponent() {
     if (pathName.startsWith('/dashboard')) {
         return null
     }
+    // Section links for the dropdown selector
+    const sectionLinks = [
+        { label: "Head Teacher", href: "#teacher" },
+        { label: "Our School", href: "#our-school" },
+        { label: "About Us", href: "#about" },
+        { label: "Why Choose Us", href: "#why-choose" },
+        { label: "Success", href: "#our-success" },
+        { label: "Contact", href: "#contact" },
+        { label: "FAQ", href: "#faq" },
+    ];
     return (
         <div className="mb-20">
             {/* Global Header Element */}
@@ -92,7 +95,7 @@ export default function HeaderComponent() {
                         className="p-2.5 -ml-2 rounded-xl text-slate-700 hover:bg-slate-50 md:hidden transition-colors focus:outline-none"
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     >
-                        {isMenuOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
+                        {isMenuOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}sdfsd
                     </button>
 
                     <Link href="/" className="flex items-center gap-3 active:scale-95 transition-transform">
@@ -105,16 +108,33 @@ export default function HeaderComponent() {
 
                 {/* Center Section: Desktop Links */}
                 <div className="hidden md:flex items-center gap-2">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.label}
-                            href={link.href}
-                            className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition"
+
+                    <Link
+                        href={'/'}
+                        className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition"
+                    >
+                        Home
+                    </Link>
+                    <div className="w-full max-w-xs">
+                        <select
+                            id="section-select"
+                            onChange={(e) => {
+                                if (e.target.value) {
+                                    window.location.hash = e.target.value;
+                                }
+                            }}
+                            className="w-full px-4 py-2 bg-white border border-slate-300 rounded-xl text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
                         >
-                            {link.label}
-                        </Link>
-                    ))}
-                    {/* Display Dashboard in desktop size if authenticated */}
+                            <option value="">Explore More</option>
+                            {sectionLinks.map((section) => (
+                                <option key={section.label} value={section.href}>
+                                    {section.label}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    {/* Display Dashboard in desktop size if 
+                    authenticated */}
                     {session && (
                         <Link
                             href={`/dashboard/${session?.user.role}`}
@@ -200,16 +220,13 @@ export default function HeaderComponent() {
                 style={{ paddingTop: "5rem" }}
             >
                 <div className="flex flex-col px-6 py-4 gap-1">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.label}
-                            href={link.href}
-                            onClick={mobileMenuState.close}
-                            className="w-full block rounded-xl px-4 py-3.5 text-base font-semibold text-slate-800 hover:bg-slate-50 active:bg-slate-100 transition-colors"
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
+
+                    <Link
+                        href={'/'}
+                        className="w-full block rounded-xl px-4 py-3.5 text-base font-semibold text-slate-800 hover:bg-slate-50 active:bg-slate-100 transition-colors"
+                    >
+                        Home
+                    </Link>
 
                     {/* Extra Dashboard link on Mobile view if authenticated */}
                     {session && (
