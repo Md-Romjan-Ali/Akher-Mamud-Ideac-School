@@ -137,7 +137,7 @@ export default function HeaderComponent() {
                     authenticated */}
                     {session && (
                         <Link
-                            href={`/dashboard/${session?.user.role}`}
+                            href={`/dashboard/${session?.user.role}/profile`}
                             className="rounded-full px-4 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 transition"
                         >
                             Dashboard

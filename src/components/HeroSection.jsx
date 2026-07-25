@@ -14,8 +14,8 @@ import { Button } from "@heroui/react";
 
 export default function HeroSection() {
     const bannerImages = [
-        "https://i.ibb.co.com/XxDjCmJx/484713077-2038670389956190-6800219463606011938-n.jpg",
-        "https://i.ibb.co.com/BVxzpc5Q/472323797-1985143795308850-4884126481897440377-n.jpg",
+        "https://media.istockphoto.com/id/1411701868/photo/magic-book-with-glitter-open-book-with-lights-glowing-in-dark-background.jpg?s=612x612&w=0&k=20&c=-vGSj8f8tj6Zbj2mDZCABgP50rcLjqWw-KwxgDA2cYc=",
+        "https://thumbs.dreamstime.com/b/old-book-flying-letters-magic-light-background-bookshelf-library-ancient-books-as-symbol-knowledge-history-218640948.jpg",
 
     ];
 
