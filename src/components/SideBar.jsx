@@ -19,7 +19,7 @@ export function Sidebar() {
             { icon: HiAcademicCap, label: "All Teachers", href: "/dashboard/admin/allTeacher" },
             { icon: HiUsers, label: "All Students", href: "/dashboard/admin/allStudent" },
             { icon: HiUsers, label: "All Users", href: "/dashboard/admin/allUser" },
-            { icon: HiCurrencyDollar, label: "Earn & Cost", href: "/dashboard/admin/earn-cost" },
+            { icon: HiCurrencyDollar, label: "Earn & Cost", href: "/dashboard/admin/earn" },
             { icon: HiCalendarDays, label: "Teacher Attendance", href: "/dashboard/admin/teacherAttendence" },
             { icon: HiUser, label: "Add-Teacher", href: "/dashboard/admin/addTeacher" },
         ],
