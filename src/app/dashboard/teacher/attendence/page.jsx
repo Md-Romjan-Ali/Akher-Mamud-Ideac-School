@@ -114,13 +114,13 @@ export default function MonthlyAttendance() {
                         <thead>
                             {/* Table Column Structural Definition Width Headers */}
                             <tr className="bg-slate-50 text-slate-600 text-xs font-bold uppercase border-b border-slate-200">
-                                <th className="py-3 px-4 w-[260px] sticky left-0 bg-slate-50 z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
+                                <th className="py-3 px-4 w-[110px] sticky left-0 bg-slate-50 z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                                     Student Name
                                 </th>
-                                <th className="py-3 px-2 text-center w-[60px]">Roll</th>
+                                <th className="py-3 px-2 text-center w-[40px]">Roll</th>
                                 {/* Dynamically build calendar days heads */}
                                 {daysArray.map((day) => (
-                                    <th key={day} className="py-3 text-center border-l border-slate-200/60 w-[42px] font-mono font-medium">
+                                    <th key={day} className="py-3 text-center border-l border-slate-200/60 w-[20px] font-mono font-medium">
                                         {day < 10 ? `0${day}` : day}
                                     </th>
                                 ))}
@@ -137,9 +137,7 @@ export default function MonthlyAttendance() {
                                         {/* Sticky Left Name column to let teachers scroll columns without losing track of names */}
                                         <td className="py-2.5 px-4 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gradient-to-br from-slate-400 to-slate-500 text-white font-semibold text-xs shrink-0">
-                                                    {initials}
-                                                </div>
+
                                                 <div className="truncate">
                                                     <div className="font-semibold text-slate-800 leading-tight">{student.name}</div>
                                                     <div className="text-[11px] text-slate-400 truncate">{student.email}</div>
@@ -164,7 +162,7 @@ export default function MonthlyAttendance() {
                                                         onClick={() => toggleCell(student.id, day)}
                                                         aria-label={`Day ${day} status for ${student.name}`}
                                                         className={`
-                              w-8 h-8 mx-auto rounded-lg flex items-center justify-center transition-all duration-150 cursor-pointer text-transparent outline-none border
+                              w-5 h-5 mx-auto rounded-lg flex items-center justify-center transition-all duration-150 cursor-pointer text-transparent outline-none border
                               ${isPresent
                                                                 ? "bg-emerald-500 border-emerald-600 text-white scale-105 shadow-sm"
                                                                 : "bg-white border-slate-200 hover:border-emerald-300 hover:bg-slate-50"

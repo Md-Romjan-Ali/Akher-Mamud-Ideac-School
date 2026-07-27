@@ -2,18 +2,20 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { FaSearch, FaUser } from "react-icons/fa";
+import { FaSearch, FaTrashAlt, FaUser } from "react-icons/fa";
 import Link from "next/link";
 import { CgArrowTopRight } from "react-icons/cg";
-import { DeleteModal } from "./DeleteModal";
+import { Button } from "@heroui/react";
+import { deleteStudent } from "@/lib/delete";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 export default function StudentTableTeacher({ initialStudents }) {
-    const [students] = useState(initialStudents);
     const [selectedClass, setSelectedClass] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
-
+    const router = useRouter()
     // Filter logic for Class Tab & Search Input
-    const filteredStudents = students.filter((student) => {
+    const filteredStudents = initialStudents.filter((student) => {
         const matchesClass = selectedClass === "All" || student.className === selectedClass;
         const matchesSearch =
             student.studentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -24,7 +26,30 @@ export default function StudentTableTeacher({ initialStudents }) {
     });
 
     const classList = ["All", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-
+    // ldlete student
+    const deleteStudentHandle = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const student = await deleteStudent(id)
+                if (student.deletedCount === 1) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                }
+            }
+            router.refresh()
+        });
+    }
     return (
         <div className="max-w-6xl mx-auto p-4 md:p-8 font-sans space-y-6">
 
@@ -100,14 +125,14 @@ export default function StudentTableTeacher({ initialStudents }) {
                                         {/* Name & Photo */}
                                         <td className="py-4 px-6 font-semibold text-slate-900 dark:text-white">
                                             <div className="flex items-center gap-3">
-                                                <div className="relative w-10 h-10 rounded-full overflow-hidden bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center text-sm border border-emerald-100 dark:border-emerald-900 shrink-0">
+                                                <div className="relative bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center text-sm border border-emerald-100 dark:border-emerald-900 shrink-0">
                                                     {student.photoUrl ? (
                                                         <Image
                                                             src={student.photoUrl}
                                                             alt={student.studentName}
-                                                            fill
-                                                            className="object-cover"
-                                                            sizes="40px"
+                                                            width={200}
+                                                            height={200}
+                                                            className="object-cover w-12 h-12 rounded-full"
                                                         />
                                                     ) : (
                                                         student.studentName.charAt(0)
@@ -139,7 +164,11 @@ export default function StudentTableTeacher({ initialStudents }) {
 
                                         {/* Action Buttons */}
                                         <td className="py-4 gap-4 px-6 text-center text-lg flex items-center">
-                                            <DeleteModal id={student._id} type='student' />
+                                            <Button onClick={() => deleteStudentHandle(student._id)} variant="error"
+                                                className="p-2 rounded-lg text-rose-500  bg-rose-50 dark:hover:bg-rose-950/40 transition-all"
+                                            >
+                                                <FaTrashAlt className="text-base" />
+                                            </Button>
                                             <Link
                                                 className='flex items-center gap-2 group hover:text-blue-500'
                                                 href={`/dashboard/admin/allStudent/${student._id}`}

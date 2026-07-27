@@ -5,13 +5,16 @@ import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 // Assuming you set up your Better Auth client instance here
 import { authClient } from "@/lib/auth-client";
 import { FcGoogle } from "react-icons/fc";
+import { Spinner } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
     const [showPassword, setShowPassword] = useState(false);
-
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setLoading(true)
         // One-line shortcut to get all input fields as a single object
         const data = Object.fromEntries(new FormData(e.target));
         console.log(data);
@@ -23,7 +26,8 @@ export default function RegisterPage() {
                 name: data.name,
                 image: data.imageUrl, // Map the image URL directly
             });
-
+            setLoading(false)
+            router.push('/')
             if (error) {
                 alert(error.message || "Registration failed");
                 return;
@@ -93,7 +97,13 @@ export default function RegisterPage() {
                     </div>
 
                     <button type="submit" className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 active:scale-[0.99] transition-all duration-150 text-sm mt-4">
-                        Register
+                        {
+                            loading ?
+                                <Spinner color="current" />
+                                :
+                                'Register'
+                        }
+
                     </button>
                 </form>
 

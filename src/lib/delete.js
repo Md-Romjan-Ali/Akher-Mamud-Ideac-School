@@ -1,4 +1,12 @@
 const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
+
+// user
+export const deleteUser = async (id) => {
+    const res = await fetch(`${serverUrl}/api/deleteuser/${id}`, {
+        method: 'DELETE',
+    })
+    return res.json()
+}
 // student
 export const deleteStudent = async (id) => {
     const res = await fetch(`${serverUrl}/api/deletestudent/${id}`, {

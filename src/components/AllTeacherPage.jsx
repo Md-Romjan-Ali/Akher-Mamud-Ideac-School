@@ -15,7 +15,9 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { CgArrowTopRight } from 'react-icons/cg';
-import { DeleteModal } from './DeleteModal';
+import { deleteTeacher } from '@/lib/delete';
+import { Button } from '@heroui/react';
+import Swal from 'sweetalert2';
 
 export default function TeacherTableFrontend({ teachers }) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -30,7 +32,30 @@ export default function TeacherTableFrontend({ teachers }) {
             teacher.subjectForJoin.toLowerCase().includes(q)
         );
     });
+    const deleteTeacherHandle = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const teachet = await deleteTeacher(id)
+                if (teachet.deletedCount === 1) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                }
+            }
 
+            router.refresh()
+        });
+    }
     return (
         <div className="max-w-6xl mx-auto p-4 md:p-8 font-sans space-y-6">
 
@@ -133,7 +158,11 @@ export default function TeacherTableFrontend({ teachers }) {
                                         {/* Actions */}
                                         <td className="py-4 px-6 text-center">
                                             <div className="flex items-center justify-center gap-4">
-                                                <DeleteModal id={teacher._id} type='teacher' />
+                                                <Button onClick={() => deleteTeacherHandle(teacher._id)} variant="error"
+                                                    className="p-2 rounded-lg text-rose-500  bg-rose-50 dark:hover:bg-rose-950/40 transition-all"
+                                                >
+                                                    <FaTrashAlt className="text-base" />
+                                                </Button>
                                                 <Link
                                                     className='flex items-center gap-2 group hover:text-blue-500'
                                                     href={`/dashboard/admin/allTeacher/${teacher._id}`}
@@ -188,7 +217,11 @@ export default function TeacherTableFrontend({ teachers }) {
 
                                     {/* Actions */}
                                     <div className="flex items-center justify-center gap-4">
-                                        <DeleteModal id={teacher._id} type='teacher' />
+                                        <Button onClick={() => deleteTeacherHandle(teacher._id)} variant="error"
+                                            className="p-2 rounded-lg text-rose-500  bg-rose-50 dark:hover:bg-rose-950/40 transition-all"
+                                        >
+                                            <FaTrashAlt className="text-base" />
+                                        </Button>
                                         <Link
                                             className='flex items-center gap-2 group hover:text-blue-500'
                                             href={`/dashboard/admin/allTeacher/${teacher._id}`}

@@ -22,6 +22,7 @@ export function Sidebar() {
             { icon: HiCurrencyDollar, label: "Earn & Cost", href: "/dashboard/admin/earn" },
             { icon: HiCalendarDays, label: "Teacher Attendance", href: "/dashboard/admin/teacherAttendence" },
             { icon: HiUser, label: "Add-Teacher", href: "/dashboard/admin/addTeacher" },
+            { icon: HiUser, label: "Add-Routine", href: "/dashboard/admin/allTeacher/addroutine" },
         ],
 
         teacher: [
@@ -45,7 +46,7 @@ export function Sidebar() {
     const role = session?.user.role
     const navItems = dainamicNavItem[role] || []
     return (
-        <aside className="pl-5">
+        <aside className="md:pl-5">
             <Drawer.Body className="hidden md:block min-h-screen w-52">
                 <div className="flex gap-5 my-10 justify-center flex-col">
                     <Link href="/" className="flex items-center gap-3 active:scale-95 transition-transform">
@@ -71,7 +72,7 @@ export function Sidebar() {
                 </nav>
             </Drawer.Body>
             <Drawer>
-                <Button variant="secondary" className={'md:hidden absolute mb-10 top-0 left-0'}>
+                <Button variant="secondary" className={'md:hidden absolute top-0 left-6 z-10'}>
                     <Bars />
                     Menu
                 </Button>
