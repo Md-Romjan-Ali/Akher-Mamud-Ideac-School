@@ -4,6 +4,7 @@ const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
 export const updateUser = async (data, id) => {
     const res = await fetch(`${serverUrl}/api/updateuesr/${id}`, {
         method: 'PATCH',
+        cache: 'no-store',
         headers: {
             'Content-Type': 'application/json'
         },

@@ -1,7 +1,9 @@
 const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
 // user
 export const getuser = async () => {
-    const res = await fetch(`${serverUrl}/api/alluser`)
+    const res = await fetch(`${serverUrl}/api/alluser`, {
+        cache: 'no-store'
+    })
     return res.json()
 }
 // student
