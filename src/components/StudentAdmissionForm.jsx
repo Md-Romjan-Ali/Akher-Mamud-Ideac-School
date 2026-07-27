@@ -18,6 +18,8 @@ import {
     FaSpinner,
     FaPaperPlane,
 } from "react-icons/fa";
+import DownloadPdf from "./DownloadPdf";
+import { usePathname } from "next/navigation";
 
 export default function StudentRegistrationForm() {
     // Only using minimal state for handling image preview and API upload status
@@ -25,6 +27,7 @@ export default function StudentRegistrationForm() {
     const [imagePreview, setImagePreview] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [loadSubmit, setLoadSubmit] = useState(false)
+    const pathName = usePathname()
     // Upload image to ImgBB via FormData
     const handleImageUpload = async (e) => {
         const file = e.target.files[0];
@@ -74,7 +77,7 @@ export default function StudentRegistrationForm() {
         console.log("FormAPI:", submitAdmissionData, formValues);
         setLoadSubmit(false)
     };
-
+    pathName.startsWith("")
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-8 px-4 sm:px-6 lg:px-8 font-sans">
             <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden">

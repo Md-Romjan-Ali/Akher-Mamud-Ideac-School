@@ -1,3 +1,4 @@
+import AddmissionNow from "@/components/AddmissionNow";
 import OfficeTimer from "@/components/OfficeTime";
 import dynamic from "next/dynamic";
 
@@ -24,6 +25,7 @@ export default function Home() {
         <WhyChooseSection />
         <ContactSection />
         <FAQSection />
+        <AddmissionNow />
       </main>
     </div>
   );

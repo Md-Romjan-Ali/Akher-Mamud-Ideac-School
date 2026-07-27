@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -22,7 +23,15 @@ export default function HeroSection() {
     return (
         <section
             id="home" className="overflow-hidden bg-blue-50 py-16 sm:py-24">
-            <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 md:px-8 lg:flex-row lg:items-center lg:justify-between">
+            <motion.div
+                initial={{
+                    opacity: 0
+                }}
+                animate={{
+                    opacity: 1,
+                    transition: { duration: 1 }
+                }}
+                className="mx-auto flex max-w-7xl flex-col gap-12 px-6 md:px-8 lg:flex-row lg:items-center lg:justify-between">
 
                 {/* Left Text Content */}
                 <div className="max-w-2xl space-y-6 text-center md:text-left lg:text-left">
@@ -100,7 +109,7 @@ export default function HeroSection() {
                     </div>
                 </div>
 
-            </div>
+            </motion.div>
 
         </section>
     );

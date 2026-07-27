@@ -8,6 +8,7 @@ import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
+import { motion } from "framer-motion";
 
 export default function LoginPage() {
     const [loading, setLoading] = useState(false)
@@ -52,7 +53,15 @@ export default function LoginPage() {
     }
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center p-4">
-            <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-100">
+            <motion.div
+                initial={{
+                    opacity: 0
+                }}
+                animate={{
+                    opacity: 1,
+                    transition: { duration: 1 }
+                }}
+                className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-100">
 
                 {/* Header */}
                 <div className="text-center mb-8">
@@ -172,7 +181,7 @@ export default function LoginPage() {
                     </Link>
                 </div>
 
-            </div>
+            </motion.div>
         </div>
     );
 }
