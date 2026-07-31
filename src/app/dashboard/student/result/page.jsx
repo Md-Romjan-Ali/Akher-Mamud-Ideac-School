@@ -1,6 +1,7 @@
 "use client";
 
 import DownloadPdf from "@/components/DownloadPdf";
+import ShareButton from "@/components/ShareButton";
 import { Button } from "@heroui/react";
 import React from "react";
 import { FiAward, FiBook, FiCheckCircle, FiDownload } from "react-icons/fi";
@@ -44,7 +45,7 @@ export default function ResultTableSection() {
                             </p>
                         </div>
                         <DownloadPdf />
-
+                        <ShareButton />
                     </div>
 
                     {/* Desktop Responsive HTML Table */}
