@@ -10,7 +10,8 @@ import {
     FaGraduationCap,
     FaPhoneAlt,
     FaIdCard,
-    FaUser
+    FaUser,
+    FaEnvelope
 } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -129,7 +130,7 @@ export default function TeacherTableFrontend({ teachers }) {
                                             <div>
                                                 <p className="text-base font-bold">{teacher.teacherName}</p>
                                                 <p className="text-xs text-slate-500 dark:text-slate-400 font-normal flex items-center gap-1 mt-0.5">
-                                                    <FaIdCard className="text-blue-500" /> NID: {teacher.nationalId}
+                                                    {teacher.email}
                                                 </p>
                                             </div>
                                         </td>

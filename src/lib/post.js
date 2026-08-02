@@ -20,3 +20,14 @@ export const teacherPost = async (teacherPayload) => {
     })
     return res.json()
 }
+// teacher routine
+export const teacherRoutinePost = async (routinePayload) => {
+    const res = await fetch(`${serverUrl}/api/postteacherroutine`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(routinePayload)
+    })
+    return res.json()
+}

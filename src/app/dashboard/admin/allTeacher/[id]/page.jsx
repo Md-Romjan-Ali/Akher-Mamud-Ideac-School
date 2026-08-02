@@ -13,7 +13,8 @@ import {
     FaTint,
     FaBookOpen,
     FaEdit,
-    FaPrint
+    FaPrint,
+    FaEnvelope
 } from 'react-icons/fa';
 import { getTeacherByid } from '@/lib/get';
 import { TeacherUpdate } from '@/components/TeacherUpdateModal';
@@ -90,7 +91,7 @@ export default async function TeacherDetailsPage({ params }) {
 
                     <div className="text-xs text-slate-500 dark:text-slate-400 font-medium self-stretch md:self-auto flex md:flex-col justify-between items-end gap-1 border-t md:border-t-0 pt-3 md:pt-0 border-slate-100 dark:border-slate-800">
                         <span>Joined: <strong className="text-slate-700 dark:text-slate-300">{teacher.joinDate}</strong></span>
-                        <span>NID: <strong className="text-slate-700 dark:text-slate-300">{teacher.nationalId}</strong></span>
+                        <span>Email: <strong className="text-slate-700 dark:text-slate-300">{teacher.email}</strong></span>
                     </div>
                 </div>
 
@@ -120,9 +121,9 @@ export default async function TeacherDetailsPage({ params }) {
                             </div>
 
                             <div className="flex justify-between py-1.5 border-b border-slate-50 dark:border-slate-800/50">
-                                <dt className="text-slate-500 dark:text-slate-400">National ID</dt>
+                                <dt className="text-slate-500 dark:text-slate-400">Email</dt>
                                 <dd className="font-medium text-slate-800 dark:text-slate-200 flex items-center gap-1">
-                                    <FaIdCard className="text-blue-500 text-xs" /> {teacher.nationalId}
+                                    <FaEnvelope className="text-blue-500 text-xs" /> {teacher.email}
                                 </dd>
                             </div>
 

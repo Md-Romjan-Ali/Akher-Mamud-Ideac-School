@@ -146,13 +146,13 @@ export default function TeacherRegistrationForm() {
                             {/* National ID */}
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-1">
-                                    National ID No. <span className="text-red-500">*</span>
+                                    Email <span className="text-red-500">*</span>
                                 </label>
                                 <input
-                                    type="text"
-                                    name="nationalId"
+                                    type="email"
+                                    name="email"
                                     required
-                                    placeholder="e.g. 1993820194827"
+                                    placeholder="e.g. john.smith@example.com"
                                     className="w-full px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 transition"
                                 />
                             </div>

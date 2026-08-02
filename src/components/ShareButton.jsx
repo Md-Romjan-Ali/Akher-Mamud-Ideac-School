@@ -1,18 +1,31 @@
-"use client"
-import { usePathname } from 'next/navigation';
-import React from 'react';
-import { FacebookIcon, FacebookShareButton } from 'react-share';
+"use client";
 
-const ShareButton = () => {
-    const pathName = usePathname()
-    const url = `https://akher-mamud-ideal-school.vercel.app${pathName}`
+import {
+    FacebookShareButton,
+    LinkedinShareButton,
+    WhatsappShareButton,
+    FacebookIcon,
+    LinkedinIcon,
+    WhatsappIcon,
+} from "react-share";
+
+export default function ShareButton() {
+    const url = window.location.href;
+    const title = "Check out this post!";
+
     return (
-        <div>
-            <FacebookShareButton title="my Result is" url={url} aria-description="recently i aml; complete y exma and succefull">
-                <FacebookIcon size={32} round />
+        <div className="flex gap-3">
+            <FacebookShareButton url={url} hashtag={`${url}`}>
+                <FacebookIcon size={40} round />
             </FacebookShareButton>
+
+            <LinkedinShareButton url={url} title={title}>
+                <LinkedinIcon size={40} round />
+            </LinkedinShareButton>
+
+            <WhatsappShareButton url={url} title={title}>
+                <WhatsappIcon size={40} round />
+            </WhatsappShareButton>
         </div>
     );
-};
-
-export default ShareButton;
+}

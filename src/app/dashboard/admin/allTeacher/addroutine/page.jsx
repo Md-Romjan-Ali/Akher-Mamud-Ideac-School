@@ -1,5 +1,6 @@
 'use client';
 
+import { teacherRoutinePost } from '@/lib/post';
 import React, { useState } from 'react';
 import {
     FaChalkboardTeacher,
@@ -8,24 +9,19 @@ import {
     FaCalendarDay,
     FaClock,
     FaPaperPlane,
-    FaCheckCircle
+
 } from 'react-icons/fa';
 
 export default function AddRoutineForm() {
-    const [submittedData, setSubmittedData] = useState(null);
-
-    const handleSubmit = (e) => {
+    const [loading, setLoading] = useState(false);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // 1. Gather raw form data using native JS FormData
+        setLoading(true);
         const formData = new FormData(e.target);
-
-        // 2. Convert to key-value object using Object.fromEntries
-        const payload = Object.fromEntries(formData.entries());
-
-        // 3. Output to console and local state
-        console.log('Routine Payload:', payload);
-        setSubmittedData(payload);
+        const routinePayload = Object.fromEntries(formData.entries());
+        const result = await teacherRoutinePost(routinePayload);
+        console.log('Routine Post Result:', result);
+        setLoading(false);
     };
 
     return (
@@ -172,25 +168,20 @@ export default function AddRoutineForm() {
                     {/* Submit Button */}
                     <button
                         type="submit"
+                        disabled={loading}
                         className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2 mt-2"
                     >
-                        <FaPaperPlane className="text-xs" /> Save Routine Slot
+                        {
+                            loading ? 'loading...':
+                            <>
+                                <FaPaperPlane className="text-xs" /> Save Routine Slot
+                            </>
+                        }
+                     
                     </button>
 
                 </form>
             </div>
-
-            {/* Output Preview Section */}
-            {submittedData && (
-                <div className="bg-slate-900 text-slate-100 p-5 rounded-2xl border border-slate-800 shadow-sm space-y-2">
-                    <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs uppercase tracking-wider">
-                        <FaCheckCircle /> Captured `Object.fromEntries(formData)` Output:
-                    </div>
-                    <pre className="text-xs font-mono bg-slate-950 p-3 rounded-lg overflow-x-auto text-blue-300 border border-slate-800">
-                        {JSON.stringify(submittedData, null, 2)}
-                    </pre>
-                </div>
-            )}
 
         </div>
     );
