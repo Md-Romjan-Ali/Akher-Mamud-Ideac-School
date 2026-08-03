@@ -30,3 +30,10 @@ export const getTeacherByid = async (id) => {
     const res = await fetch(`${serverUrl}/api/teacherdetails/${id}`)
     return res.json()
 }
+// teacher routine
+export const getTeacherRoutine = async (teacherEmail) => {
+    const res = await fetch(`${serverUrl}/api/getteacherroutine?teacherEmail=${teacherEmail}`, {
+        cache: 'no-store'
+    })
+    return res.json()
+}

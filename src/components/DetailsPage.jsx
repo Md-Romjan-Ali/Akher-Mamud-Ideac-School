@@ -15,9 +15,10 @@ import {
     FiPhone,
     FiUserCheck
 } from "react-icons/fi";
+import { AddResultModal } from "./AddResultModal";
 
 const DetailsPage = ({ studentDetails }) => {
-    const { studentName, photoUrl, initials, fatherName, motherName, dob, studentType, phoneNumber, email, className, role, address } = studentDetails
+    const { studentName, photoUrl, initials, fatherName, motherName, dob, studentType, phoneNumber, email, className, address } = studentDetails
     return (
         <div>
             <div className="w-full max-w-4xl mx-auto p-4 md:p-6 my-6 font-sans antialiased text-slate-800">
@@ -91,10 +92,15 @@ const DetailsPage = ({ studentDetails }) => {
 
                     {/* Role Tag & ID Badge */}
                     <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto gap-2 border-t sm:border-t-0 border-slate-100 dark:border-slate-800 pt-3 sm:pt-0">
-                        <span className="text-xs uppercase font-bold text-slate-400 dark:text-slate-500">System Role</span>
-                        <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-lg capitalize border border-slate-200 dark:border-slate-700">
-                            {role}
-                        </span>
+                        <span className="text-xs uppercase font-bold text-slate-400 dark:text-slate-500">Result</span>
+                        <div className="flex items-center gap-2">
+
+                            <AddResultModal email={email} />
+
+                            <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-lg capitalize border border-slate-200 dark:border-slate-700">
+                                update
+                            </span>
+                        </div>
                     </div>
                 </div>
 
