@@ -1,6 +1,6 @@
 # 🎓 Akher Mamud Ideal School Management System
 
-> 🚧 **Project Status:** Currently Under Active Development
+>  **Project Status:** Currently Under Active Development
 
 A modern, scalable **School Management System** built with **Next.js** and modern web technologies. This platform is designed to digitize school operations by providing modules for student management, teacher management, admissions, notices, academic information, events, and administrative workflows through a secure and user-friendly interface.
 
