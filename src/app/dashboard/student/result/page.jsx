@@ -2,9 +2,8 @@
 
 import DownloadPdf from "@/components/DownloadPdf";
 import ShareButton from "@/components/ShareButton";
-import { Button } from "@heroui/react";
 import React from "react";
-import { FiAward, FiBook, FiCheckCircle, FiDownload } from "react-icons/fi";
+import { FiAward, FiBook, FiCheckCircle } from "react-icons/fi";
 
 
 export default function ResultTableSection() {

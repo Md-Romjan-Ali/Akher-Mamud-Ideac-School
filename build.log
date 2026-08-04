@@ -1,0 +1,20 @@
+
+> app-temp@0.1.0 build
+> next build
+
+▲ Next.js 16.2.10 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 43s
+  Running TypeScript ...
+  Finished TypeScript in 1222ms ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/30) ...
+Error occurred prerendering page "/dashboard/student/result". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: useState is not defined
+    at aa (E:\course\Akher Mamud Ideal School\.next\server\chunks\ssr\[root-of-the-server]__1rrpg00._.js:1:26791) {
+  digest: '1725136860'
+}
+Export encountered an error on /dashboard/student/result/page: /dashboard/student/result, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null
