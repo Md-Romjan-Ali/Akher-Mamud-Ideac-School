@@ -37,3 +37,10 @@ export const getTeacherRoutine = async (teacherEmail) => {
     })
     return res.json()
 }
+// student result
+export const getStudentResult = async (studentEmail) => {
+    const res = await fetch(`${serverUrl}/api/studentresult?email=${studentEmail}`, {
+        cache: 'no-store',
+    })
+    return res.json()
+}

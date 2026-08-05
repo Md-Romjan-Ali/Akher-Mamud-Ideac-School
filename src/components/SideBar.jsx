@@ -7,7 +7,7 @@ import { FiBookOpen } from "react-icons/fi";
 import { Bars } from "@gravity-ui/icons";
 import { HiCalendarDays, HiChatBubbleLeftRight, HiClipboardDocumentList, HiDocumentText, HiHome, HiUser, HiUsers } from "react-icons/hi2";
 import { HiAcademicCap, HiCurrencyDollar } from "react-icons/hi";
-
+import { MdAddCircleOutline } from "react-icons/md";
 export function Sidebar() {
     const { data: session } = authClient.useSession()
 
@@ -32,6 +32,7 @@ export function Sidebar() {
             { icon: HiClipboardDocumentList, label: "Attendance", href: "/dashboard/teacher/attendence" },
             { icon: HiAcademicCap, label: "My Class", href: "/dashboard/teacher/myClass" },
             { icon: HiCalendarDays, label: "My Attendance", href: "/dashboard/teacher/myAttendence" },
+            { icon: MdAddCircleOutline, label: "Add-Result", href: "/dashboard/teacher/addResult" },
         ],
 
         student: [
