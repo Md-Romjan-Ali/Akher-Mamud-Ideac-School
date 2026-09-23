@@ -32,18 +32,20 @@ export default function LoginPage() {
                 dontRememberMe: !rememberMe, // Better Auth uses dontRememberMe by default
             });
 
-            setLoading(false)
             if (error) {
-                setError(error.message);
+                setLoading(false)
+                setError(error.message || "Login failed");
                 return;
             }
 
+            setLoading(false)
             console.log("Logged in successfully:", session);
-            // Redirect after successful login (e.g., window.location.href = '/dashboard')
+            router.push('/');
         } catch (err) {
+            setLoading(false)
+            setError(err?.message || "Login failed");
             console.error("Login error:", err);
         }
-        router.push('/')
     };
     const googleHandle = async () => {
         await authClient.signIn.social({

@@ -27,17 +27,20 @@ export default function RegisterPage() {
                 name: data.name,
                 image: data.imageUrl, // Map the image URL directly
             });
-            setLoading(false)
-            router.push('/')
+
             if (error) {
+                setLoading(false)
                 alert(error.message || "Registration failed");
                 return;
             }
 
+            setLoading(false)
             console.log("Registered successfully:", session);
-            // Redirect your user here (e.g., router.push('/dashboard'))
+            router.push('/');
         } catch (err) {
+            setLoading(false)
             console.error("Auth error:", err);
+            alert(err?.message || "Registration failed");
         }
     };
 

@@ -20,7 +20,7 @@ export default function AddRoutineForm() {
         const formData = new FormData(e.target);
         const routinePayload = Object.fromEntries(formData.entries());
         const result = await teacherRoutinePost(routinePayload);
-        console.log('Routine Post Result:', result);
+        console.log(routinePayload,'Routine Post Result:', result);
         setLoading(false);
     };
 

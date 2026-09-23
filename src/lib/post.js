@@ -1,44 +1,28 @@
 const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL
-export const studentDataPost = async (student) => {
-    const res = await fetch(`${serverUrl}/api/postallstudent`, {
+
+const postData = async (endpoint, data) => {
+    const res = await fetch(`${serverUrl}${endpoint}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(student)
+        body: JSON.stringify(data)
     })
-    return res.json()
+    return await res.json()
+}
+
+export const studentDataPost = async (student) => {
+    return await postData(`/api/postallstudent`, student)
 }
 // teacher post
 export const teacherPost = async (teacherPayload) => {
-    const res = await fetch(`${serverUrl}/api/poststudent`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(teacherPayload)
-    })
-    return res.json()
+    return await postData(`/api/poststudent`, teacherPayload)
 }
 // teacher routine
 export const teacherRoutinePost = async (routinePayload) => {
-    const res = await fetch(`${serverUrl}/api/postteacherroutine`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(routinePayload)
-    })
-    return res.json()
+    return await postData(`/api/postteacherroutine`, routinePayload)
 }
 // student result
 export const studentResultPost = async (resultPayload) => {
-    const res = await fetch(`${serverUrl}/api/poststudentresult`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(resultPayload)
-    })
-    return res.json()
+   return await postData(`/api/poststudentresult`,resultPayload)
 }

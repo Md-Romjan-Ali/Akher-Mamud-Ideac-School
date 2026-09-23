@@ -26,6 +26,12 @@ export const auth = betterAuth({
         additionalFields: {
             role: {
                 defaultValue: 'user'
+            },
+            resetCode: {
+                defaultValue: null
+            },
+            resetCodeExpires: {
+                defaultValue: null
             }
         }
     }

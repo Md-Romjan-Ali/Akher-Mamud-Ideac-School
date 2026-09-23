@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 export default async function StudentForm() {
     const user = await userSession()
     if (!user) {
-        redirect('login')
+        redirect('/login')
     }
 
     return <StudentAdmissionForm />;
