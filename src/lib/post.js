@@ -26,3 +26,6 @@ export const teacherRoutinePost = async (routinePayload) => {
 export const studentResultPost = async (resultPayload) => {
    return await postData(`/api/poststudentresult`,resultPayload)
 }
+export const earnAndCostPost=async (earnAndCostData)=>{
+    return await postData(`/api/postearn`,earnAndCostData)
+}
