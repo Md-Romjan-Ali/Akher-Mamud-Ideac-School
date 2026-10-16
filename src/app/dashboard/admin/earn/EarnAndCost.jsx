@@ -18,6 +18,22 @@ export default function SchoolFinanceSummary({ postEarnAndCostData }) {
         console.log(postEarnAndCostData, 'from earn and cost');
     }
 console.log(postEarnAndCostData,'from earn and cost');
+// total earn calculation
+const totalEarn = postEarnAndCostData?.reduce((acc, item) => {
+    if (item.earn) {
+        return acc + parseFloat(item.amount);
+    }
+    return acc;
+}, 0);
+// cost calculation
+const totalCost = postEarnAndCostData?.reduce((acc, item) => {
+    if (item.earn===false) {
+        return acc + parseFloat(item.amount);
+    }
+    return acc;
+}, 0);
+const totalIncome=totalEarn-totalCost
+console.log(totalEarn,'from eanr and cost and',totalCost);
     return (
         <div className="min-h-screen bg-slate-50 p-4 sm:p-6 flex flex-col items-center justify-center font-sans text-slate-800">
             <div className="w-full max-w-lg space-y-6">
@@ -40,7 +56,7 @@ console.log(postEarnAndCostData,'from earn and cost');
                             Total Revenue / Fees
                         </span>
                         <span className="text-2xl font-extrabold text-emerald-600">
-                            total- 0
+                            {totalEarn}
                         </span>
                     </div>
 
@@ -50,7 +66,7 @@ console.log(postEarnAndCostData,'from earn and cost');
                             Total School Expense
                         </span>
                         <span className="text-2xl font-extrabold text-rose-600">
-                            total- 0
+                            {totalCost}
                         </span>
                     </div>
                 </div>
@@ -66,7 +82,7 @@ console.log(postEarnAndCostData,'from earn and cost');
                     </div>
 
                     <span className={`inline-block mt-2 px-3 py-1 rounded-full text-xs"bg-rose-100 text-rose-800`}>
-                        dsf
+                        {totalIncome}
                     </span>
                 </div>
 
