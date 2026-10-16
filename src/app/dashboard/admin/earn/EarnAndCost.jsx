@@ -3,7 +3,7 @@ import DownloadPdf from "@/components/DownloadPdf";
 import { earnAndCostPost } from "@/lib/post";
 import React, { useState } from "react";
 
-export default function SchoolFinanceSummary() {
+export default function SchoolFinanceSummary({ postEarnAndCostData }) {
     const [earn, setEarn] = useState(true);
     const handleSubmit =async (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ export default function SchoolFinanceSummary() {
         const postEarnAndCostData= await earnAndCostPost(postData)
         console.log(postEarnAndCostData, 'from earn and cost');
     }
-
+console.log(postEarnAndCostData,'from earn and cost');
     return (
         <div className="min-h-screen bg-slate-50 p-4 sm:p-6 flex flex-col items-center justify-center font-sans text-slate-800">
             <div className="w-full max-w-lg space-y-6">

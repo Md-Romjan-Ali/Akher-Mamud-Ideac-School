@@ -44,3 +44,9 @@ export const getStudentResult = async (studentEmail) => {
     })
     return res.json()
 }
+export const getEarnAndCostData = async () => {
+    const res = await fetch(`${serverUrl}/api/getearn`, {
+        cache: 'no-store',
+    })
+    return res.json()
+}
