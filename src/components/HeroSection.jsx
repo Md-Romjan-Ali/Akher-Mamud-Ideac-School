@@ -42,7 +42,7 @@ export default function HeroSection() {
                     </div>
 
                     <h1 className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:leading-normal">
-                        <span className="text-blue-700 italic">আখের মামুদ</span> <br />
+                        <span className="text-blue-700 italic">আখের বাজার</span> <br />
                         আইডিয়াল স্কুল
                     </h1>
 
