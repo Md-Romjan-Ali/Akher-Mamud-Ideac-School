@@ -1,11 +1,15 @@
 "use client"
 import DownloadPdf from "@/components/DownloadPdf";
 import { earnAndCostPost } from "@/lib/post";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function SchoolFinanceSummary({ postEarnAndCostData }) {
+    const router = useRouter()
     const [earn, setEarn] = useState(true);
-    const handleSubmit =async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
@@ -14,28 +18,29 @@ export default function SchoolFinanceSummary({ postEarnAndCostData }) {
             ...data,
             earn
         }
-        const postEarnAndCostData= await earnAndCostPost(postData)
+        const postEarnAndCostData = await earnAndCostPost(postData)
         console.log(postEarnAndCostData, 'from earn and cost');
+        router.refresh()
     }
-console.log(postEarnAndCostData,'from earn and cost');
-// total earn calculation
-const totalEarn = postEarnAndCostData?.reduce((acc, item) => {
-    if (item.earn) {
-        return acc + parseFloat(item.amount);
-    }
-    return acc;
-}, 0);
-// cost calculation
-const totalCost = postEarnAndCostData?.reduce((acc, item) => {
-    if (item.earn===false) {
-        return acc + parseFloat(item.amount);
-    }
-    return acc;
-}, 0);
-const totalIncome=totalEarn-totalCost
-console.log(totalEarn,'from eanr and cost and',totalCost);
+    console.log(postEarnAndCostData, 'from earn and cost');
+    // total earn calculation
+    const totalEarn = postEarnAndCostData?.reduce((acc, item) => {
+        if (item.earn) {
+            return acc + parseFloat(item.amount);
+        }
+        return acc;
+    }, 0);
+    // cost calculation
+    const totalCost = postEarnAndCostData?.reduce((acc, item) => {
+        if (item.earn === false) {
+            return acc + parseFloat(item.amount);
+        }
+        return acc;
+    }, 0);
+    const totalIncome = totalEarn - totalCost
+    console.log(totalEarn, 'from eanr and cost and', totalCost);
     return (
-        <div className="min-h-screen bg-slate-50 p-4 sm:p-6 flex flex-col items-center justify-center font-sans text-slate-800">
+        <div className={`min-h-screen  p-4 sm:p-6 flex flex-col items-center justify-center font-sans text-slate-800 ${totalEarn < totalCost ? 'bg-rose-400' : 'bg-slate-50'}`}>
             <div className="w-full max-w-lg space-y-6">
 
                 {/* --- SCHOOL HEADER --- */}
@@ -88,50 +93,59 @@ console.log(totalEarn,'from eanr and cost and',totalCost);
 
                 {/* --- ADD NEW ACCOUNT ENTRY FORM --- */}
                 <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-                      <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">Add School Entry</h2>
+                    <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">Add School Entry</h2>
 
                     {/* Type Switcher */}
                     <div className="grid grid-cols-2 gap-2">
                         <button
-                        onClick={()=>setEarn(!earn)}
-                        className={`py-2 text-xs font-bold rounded-xl border transition ${earn ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
+                            onClick={() => setEarn(!earn)}
+                            className={`py-2 text-xs font-bold rounded-xl border transition ${earn ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
                         >
                             + Fee / Income
                         </button>
                         <button
-                        onClick={()=>setEarn(!earn)}
+                            onClick={() => setEarn(!earn)}
                             className={`py-2 text-xs font-bold rounded-xl border transition ${!earn ? 'bg-rose-500 text-white' : 'bg-white text-rose-500'}`}
                         >
                             - Expense / Cost
                         </button>
                     </div>
-                <form onSubmit={handleSubmit}>
-                   
+                    <form onSubmit={handleSubmit}>
 
-                    <input
-                        placeholder="Entry Title (e.g. Admission Fees, Electricity Bill)"
-                        name="title"
-                        className="w-full px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    />
 
-                    <input
-                        placeholder="Amount"
-                        name="amount"
-                        className="w-full my-3 px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    />
+                        <input
+                            placeholder="Entry Title (e.g. Admission Fees, Electricity Bill)"
+                            name="title"
+                            className="w-full px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        />
 
-                    <button
-                        className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition shadow-md"
-                    >
-                        Update School Total
-                    </button>
-                </form>
+                        <input
+                            placeholder="Amount"
+                            name="amount"
+                            className="w-full my-3 px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        />
+
+                        <button
+                            className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition shadow-md"
+                        >
+                            Update School Total
+                        </button>
+                    </form>
                 </div>
-               
 
-                <DownloadPdf />
+                <div className="flex justify-between items-center">
+                    <DownloadPdf />
+                    <Link
+                        href="/dashboard/admin/earn/detailsearnandcost"
+                        className="group inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
+                    >
+                        <span>See Details</span>
+                        <FaArrowRight className="text-[10px] transition-transform duration-200 group-hover:translate-x-1" />
+                    </Link>
+                </div>
+
             </div>
         </div>
     );

@@ -4,10 +4,8 @@ import SchoolFinanceSummary from './EarnAndCost';
 import { getEarnAndCostData } from '@/lib/get';
 
 const EarnAndCost =async () => {
-    const data={
-        datas:'romjan'
-    }
-const postEarnAndCostData= await getEarnAndCostData(data)
+   
+const postEarnAndCostData= await getEarnAndCostData()
 console.log(postEarnAndCostData,'from social');
     return (
         <div>
