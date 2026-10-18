@@ -25,7 +25,7 @@ export default function HeadTeacherSection() {
                         <div className="mt-6 w-full max-w-md rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center lg:text-left">
                             <p className="text-lg font-semibold text-slate-900">সাইফুল ইসলাম জীবন</p>
                             <p className="mt-1 text-sm text-slate-500">অধ্যক্ষ</p>
-                            <p className="text-sm text-slate-500">আখের মামুদ আইডিয়াল স্কুল</p>
+                            <p className="text-sm text-slate-500">আখের বাজার আইডিয়াল স্কুল</p>
                         </div>
                     </div>
 

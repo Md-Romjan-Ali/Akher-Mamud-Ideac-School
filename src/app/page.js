@@ -1,5 +1,6 @@
 import AddmissionNow from "@/components/AddmissionNow";
 import OfficeTimer from "@/components/OfficeTime";
+import VideoAboutSchool from "@/components/VideoAboutSchool";
 import dynamic from "next/dynamic";
 
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <OfficeTimer />
         <HeroSection />
+        <VideoAboutSchool/>
         <HeadTeacherSection />
         <FeatureSection />
         <AboutSection />
