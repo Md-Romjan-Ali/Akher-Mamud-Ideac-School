@@ -11,7 +11,7 @@ A modern, scalable **School Management System** built with **Next.js** and moder
 # 📸 Screenshot
 
 <p align="center">
-  <img src="https://i.ibb.co.com/Pq3FpM0/image.png" alt="Akher Mamud Ideal School Management System" width="100%">
+  <img src="https://i.ibb.co.com/Pq3FpM0/image.png" alt="Akher Bajar Ideal School Management System" width="100%">
 </p>
 
 ---

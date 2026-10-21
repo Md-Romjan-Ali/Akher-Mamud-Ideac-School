@@ -5,8 +5,8 @@ import React from "react";
 const VideoAboutSchool = () => {
   return (
     <section className="py-16 px-4 bg-blue-50 dark:bg-slate-900">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-white text-center mb-8">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-blue-500 text-center mb-8">
           এক নজরে আমাদের বিদ্যালয়
         </h2>
 

@@ -10,7 +10,7 @@ const RoutinePage = () => {
                 <div className="border-2 border-gray-800 p-6 rounded-lg">
                     <div className="text-center mb-6">
                         <h1 className="text-3xl font-bold uppercase">
-                            Akher Mamud Ideal School
+                            Akher Bajar Ideal School
                         </h1>
                         <p className="text-lg font-semibold mt-2">
                             Weekly Class Routine

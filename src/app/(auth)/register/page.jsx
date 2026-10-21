@@ -58,7 +58,7 @@ export default function RegisterPage() {
 
                 <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Create Account</h2>
-                    <p className="text-sm text-slate-500 mt-1 font-medium">Akhermamud Ideal School</p>
+                    <p className="text-sm text-slate-500 mt-1 font-medium">Akher Bajar Ideal School</p>
                 </div>
 
                 {/* Google Authentication via Better Auth */}

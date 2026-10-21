@@ -71,7 +71,7 @@ export default function LoginPage() {
                         Welcome Back
                     </h2>
                     <p className="text-sm text-slate-500 mt-1 font-medium">
-                        Akhermamud Ideal School
+                        Akher Bajar Ideal School
                     </p>
                 </div>
 

@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FiFacebook, FiInstagram, FiYoutube, FiMessageCircle, FiBookOpen } from "react-icons/fi";
 
@@ -21,10 +22,16 @@ export default function Footer() {
                     <div className="space-y-4">
                         <div className="flex items-center gap-3">
                             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md">
-                                <FiBookOpen className="h-6 w-6" />
+                                <Image
+                                    width={30}
+                                    height={30}
+                                    src="https://i.ibb.co.com/4Rx2df0Z/Whats-App-Image-2026-10-19-at-4-45-31-PM-removebg-preview.png"
+                                    alt="School Logo"
+                                    className="h-6 w-6"
+                                />
                             </div>
                             <div>
-                                <p className="text-2xl font-semibold text-white">A M I S</p>
+                                <p className="text-2xl font-semibold text-white">A B I S</p>
                             </div>
                         </div>
                         <p className="max-w-md text-sm leading-6 text-slate-300">

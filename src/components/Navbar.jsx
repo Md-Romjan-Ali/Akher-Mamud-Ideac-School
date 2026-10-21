@@ -123,7 +123,7 @@ export default function HeaderComponent() {
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm">
                             <FiBookOpen className="h-5 w-5" />
                         </div>
-                        <span className="text-xl font-bold tracking-wider text-slate-900">AMIS</span>
+                        <span className="text-xl font-bold tracking-wider text-slate-900">ABIS</span>
                     </Link>
                 </div>
 
