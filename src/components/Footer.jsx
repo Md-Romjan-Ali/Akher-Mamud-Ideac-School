@@ -21,13 +21,13 @@ export default function Footer() {
                 <div className="grid gap-10 lg:grid-cols-3">
                     <div className="space-y-4">
                         <div className="flex items-center gap-3">
-                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md">
+                            <div className="bg-white h-15 w-15 rounded-2xl ">
                                 <Image
-                                    width={30}
-                                    height={30}
+                                    width={300}
+                                    height={300}
                                     src="https://i.ibb.co.com/4Rx2df0Z/Whats-App-Image-2026-10-19-at-4-45-31-PM-removebg-preview.png"
                                     alt="School Logo"
-                                    className="h-6 w-6"
+                                    className=""
                                 />
                             </div>
                             <div>
