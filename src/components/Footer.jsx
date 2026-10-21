@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FiFacebook, FiInstagram, FiYoutube, FiMessageCircle, FiBookOpen } from "react-icons/fi";
+import Logo from "./Logo";
 
 const quickLinks = [
     { label: "Home", href: "#home" },
@@ -20,20 +21,7 @@ export default function Footer() {
             <div className="mx-auto max-w-7xl px-6 py-16 md:px-8">
                 <div className="grid gap-10 lg:grid-cols-3">
                     <div className="space-y-4">
-                        <div className="flex items-center gap-3">
-                            <div className="bg-white h-15 w-15 rounded-2xl ">
-                                <Image
-                                    width={300}
-                                    height={300}
-                                    src="https://i.ibb.co.com/4Rx2df0Z/Whats-App-Image-2026-10-19-at-4-45-31-PM-removebg-preview.png"
-                                    alt="School Logo"
-                                    className=""
-                                />
-                            </div>
-                            <div>
-                                <p className="text-2xl font-semibold text-white">A B I S</p>
-                            </div>
-                        </div>
+                        <Logo/>
                         <p className="max-w-md text-sm leading-6 text-slate-300">
                             A trusted learning community dedicated to academic excellence, discipline, and holistic student development.
                         </p>

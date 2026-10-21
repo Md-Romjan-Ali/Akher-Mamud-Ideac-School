@@ -120,8 +120,14 @@ export default function HeaderComponent() {
 
 
                     <Link href="/" className="flex items-center gap-3 active:scale-95 transition-transform">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm">
-                            <FiBookOpen className="h-5 w-5" />
+                        <div className="bg-white h-15 w-15 rounded-2xl ">
+                            <Image
+                                width={300}
+                                height={300}
+                                src="https://i.ibb.co.com/4Rx2df0Z/Whats-App-Image-2026-10-19-at-4-45-31-PM-removebg-preview.png"
+                                alt="School Logo"
+                                className=""
+                            />
                         </div>
                         <span className="text-xl font-bold tracking-wider text-slate-900">ABIS</span>
                     </Link>
