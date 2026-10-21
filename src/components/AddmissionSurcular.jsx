@@ -6,7 +6,7 @@ import { HiOutlineMegaphone, HiOutlineAcademicCap } from "react-icons/hi2";
 
 export default function AdmissionCircular() {
     return (
-        <section className="fixed bottom-0 right-0 left-0 w-full mx-auto max-w-7xl">
+        <section className="fixed bottom-0 right-0 left-0 w-full mx-auto">
             <div className=" px-6">
                 <div className="rounded-[2rem] bg-white p-2 shadow-xl shadow-slate-200/50 ring-1 ring-slate-200/60">
 
