@@ -15,7 +15,8 @@ export default function AdmissionCircular() {
                         {/* Fixed Badge Label */}
                         <div className="z-10 flex items-center gap-1 bg-blue-600 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md rounded-lg shrink-0">
                             <HiOutlineMegaphone className="h-4 w-4 animate-bounce" />
-                            Notice
+                            <span className="hidden md:block">Notice</span>
+                            
                         </div>
 
                         {/* React Fast Marquee Integration */}
